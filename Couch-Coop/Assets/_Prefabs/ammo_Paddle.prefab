@@ -22,9 +22,11 @@ GameObject:
   - component: {fileID: 33525261178294038}
   - component: {fileID: 135489990950185854}
   - component: {fileID: 23299924817135580}
+  - component: {fileID: 54813993701557436}
+  - component: {fileID: 114150731490847378}
   m_Layer: 0
-  m_Name: ammo
-  m_TagString: Untagged
+  m_Name: ammo_Paddle
+  m_TagString: Ball
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -36,7 +38,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1624291991465564}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -0.019143935, y: 0.5, z: -1.4}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -82,13 +84,43 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1624291991465564}
   m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!54 &54813993701557436
+Rigidbody:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1624291991465564}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 36
+  m_CollisionDetection: 0
+--- !u!114 &114150731490847378
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1624291991465564}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5440aa13eec5b44fcaa3710657e8e223, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Target: {fileID: 1754214115019842, guid: a03a420ca0bc7429798b1150b85da811, type: 2}
+  speed: 0
+  maxSpeed: 0
+  minSpeed: 0
 --- !u!135 &135489990950185854
 SphereCollider:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1624291991465564}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: c483c4c6c66a841afa7123f12c48942f, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2

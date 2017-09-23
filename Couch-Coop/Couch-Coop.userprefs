@@ -1,9 +1,15 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/_Scripts/PlayerMove.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/_Scripts/Leeroy and Ally/DestroyBall.cs">
     <Files>
-      <File FileName="Assets/_Scripts/PaddleRotator.cs" Line="17" Column="1" />
-      <File FileName="Assets/_Scripts/PlayerMove.cs" Line="6" Column="2" />
+      <File FileName="Assets/_Scripts/Leeroy and Ally/AllyVert.cs" Line="34" Column="56" />
+      <File FileName="Assets/_Scripts/Leeroy and Ally/AllyHorz.cs" Line="16" Column="17" />
+      <File FileName="Assets/_Scripts/Leeroy and Ally/GameManager.cs" Line="27" Column="11" />
+      <File FileName="Assets/_Scripts/Leeroy and Ally/Leeroy.cs" Line="1" Column="1" />
+      <File FileName="Assets/_Scripts/Leeroy and Ally/InputManager.cs" Line="33" Column="62" />
+      <File FileName="Assets/_Scripts/Leeroy and Ally/ammoLife.cs" Line="7" Column="27" />
+      <File FileName="Assets/_Scripts/Leeroy and Ally/BallMovement.cs" Line="13" Column="54" />
+      <File FileName="Assets/_Scripts/Leeroy and Ally/DestroyBall.cs" Line="20" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

@@ -51,7 +51,18 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\NewBehaviourScript.cs" />
+     <Compile Include="Assets\_Scripts\Leeroy and Ally\AllyHorz.cs" />
+     <Compile Include="Assets\_Scripts\Leeroy and Ally\AllyVert.cs" />
+     <Compile Include="Assets\_Scripts\Leeroy and Ally\ammoLife.cs" />
+     <Compile Include="Assets\_Scripts\Leeroy and Ally\BallMovement.cs" />
+     <Compile Include="Assets\_Scripts\Leeroy and Ally\DestroyBall.cs" />
+     <Compile Include="Assets\_Scripts\Leeroy and Ally\GameManager.cs" />
+     <Compile Include="Assets\_Scripts\Leeroy and Ally\InputManager.cs" />
+     <Compile Include="Assets\_Scripts\Leeroy and Ally\Leeroy.cs" />
+     <Compile Include="Assets\_Scripts\Leeroy and Ally\PaddleShoot.cs" />
+     <Compile Include="Assets\_Scripts\TileGrid\TileGridGen.cs" />
+     <Compile Include="Assets\Controller Tester\Scripts\DetectUnknownControllerMappings.cs" />
+     <Compile Include="Assets\EmptyClass.cs" />
  <Reference Include="UnityEngine.UI">
  <HintPath>/Applications/Unity 2017.1.0f3/Unity.app/Contents/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>

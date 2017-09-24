@@ -11,7 +11,6 @@ public class BallMovement : MonoBehaviour {
 		minSpeed = 5.0f;
 		GameObject temp = GameObject.FindGameObjectWithTag ("MainCamera");
 		GameManager gM = temp.GetComponent<GameManager> ();
-		Rigidbody t_Rigidbody = Target.GetComponent<Rigidbody> ();
 		gM.BallOff ();
 		Transform t_Transform = Target.GetComponent<Transform> ();
 		transform.LookAt (t_Transform);

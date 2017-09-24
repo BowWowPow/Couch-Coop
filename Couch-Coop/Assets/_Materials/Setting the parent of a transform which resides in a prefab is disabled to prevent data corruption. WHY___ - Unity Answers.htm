@@ -1,0 +1,2647 @@
+<!DOCTYPE html>
+<!-- saved from url=(0099)http://answers.unity3d.com/questions/341714/setting-the-parent-of-a-transform-which-resides-in.html -->
+<html class=" js no-flexbox flexbox-legacy canvas canvastext webgl no-touch geolocation postmessage websqldatabase indexeddb hashchange history draganddrop websockets rgba hsla multiplebgs backgroundsize borderimage borderradius boxshadow textshadow opacity cssanimations csscolumns cssgradients cssreflections csstransforms csstransforms3d csstransitions fontface generatedcontent video audio localstorage sessionstorage webworkers applicationcache svg inlinesvg smil svgclippaths" lang="en" xmlns="http://www.w3.org/1999/xhtml"><!--<![endif]--><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    
+
+    <!-- Use the .htaccess and remove these lines to avoid edge case issues. More info: h5bp.com/i/378 -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+    <title>Setting the parent of a transform which resides in a prefab is disabled to prevent data corruption. WHY??? - Unity Answers</title>
+    <meta name="description" content="Unity is the ultimate game development platform. Use Unity to build high-quality 3D and 2D games, deploy them across mobile, desktop, VR/AR, consoles or the Web, and connect with loyal and enthusiastic players and customers.">
+
+    <!-- Mobile viewport optimized: h5bp.com/viewport -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link rel="canonical" href="http://answers.unity3d.com/questions/341714/setting-the-parent-of-a-transform-which-resides-in.html">
+
+
+
+<script async="" src="./Setting the parent of a transform which resides in a prefab is disabled to prevent data corruption. WHY___ - Unity Answers_files/async-ads.js"></script><script async="" src="./Setting the parent of a transform which resides in a prefab is disabled to prevent data corruption. WHY___ - Unity Answers_files/async-ads.js"></script><script type="text/javascript" async="" src="./Setting the parent of a transform which resides in a prefab is disabled to prevent data corruption. WHY___ - Unity Answers_files/answers.unity3d.com.js"></script><script type="text/javascript" async="" src="./Setting the parent of a transform which resides in a prefab is disabled to prevent data corruption. WHY___ - Unity Answers_files/recaptcha__en.js"></script><script async="" src="./Setting the parent of a transform which resides in a prefab is disabled to prevent data corruption. WHY___ - Unity Answers_files/log.js"></script><script type="text/javascript" async="" src="./Setting the parent of a transform which resides in a prefab is disabled to prevent data corruption. WHY___ - Unity Answers_files/analytics.js"></script><script type="text/javascript" async="" src="./Setting the parent of a transform which resides in a prefab is disabled to prevent data corruption. WHY___ - Unity Answers_files/ga.js"></script><script type="text/javascript" async="" src="./Setting the parent of a transform which resides in a prefab is disabled to prevent data corruption. WHY___ - Unity Answers_files/cse.js"></script><script type="text/javascript" async="" src="./Setting the parent of a transform which resides in a prefab is disabled to prevent data corruption. WHY___ - Unity Answers_files/cse.js"></script><script async="" src="./Setting the parent of a transform which resides in a prefab is disabled to prevent data corruption. WHY___ - Unity Answers_files/gtm.js"></script><script type="text/javascript">
+    var askFormURL = '/questions/ask.html';
+    var logoutURL = '/users/logout.html';
+    var voteUpJsonURL = '/commands/0/voteup.json';
+    var voteDownJsonURL = '/commands/0/votedown.json';
+    var getVotesJsonUrl = '/%7Bnode%7D/getVotes.json';
+    var related_questions_url = '/search.json';
+    var emailCheckerURL = '/users/temporaryLogin/dupsUserEmailCheck.json';
+
+    var authorizedFileTypes = 'gif,png,jpg,jpeg,zip,tar.gz,pdf,txt'.split(",");
+    var authorizedImageTypes = 'gif,png,jpg,jpeg'.split(",");
+
+    var flashMessages = [];
+
+    var pageContext = {
+        currentUser: {
+            id: '',
+            username: 'Anonymous',
+            url: '#',
+            avatar: '',
+            reputation: '',
+            follows: null,
+            canCreateTopics: false
+        },
+        attachments: {
+            maxSizeBytes: 524288,
+            maxSizeBytesTotal: 1048576
+        },
+        i18n: {
+            confirm: "Are you sure?",
+            yes: "Yes",
+            no: "No",
+            save: "Save",
+            cancel: "Cancel",
+            close: "Close",
+            edit: "Edit",
+            insert: "Insert",
+            upload: "Upload",
+            download: "Download",
+            choose: "Choose",
+            deleted: "Deleted",
+            ok: "Ok",
+            by: "by",
+            word: "word",
+            words: "words",
+            character: "character",
+            characters: "characters",
+            login: "Sign in",
+            register: "Register",
+            timeAgo: "{0} ago",
+            timeAt: "at",
+            day: "day",
+            days: "days",
+            hour: "hour",
+            hours: "hours",
+            minute: "minute",
+            minutes: "minutes",
+            second: "sec",
+            seconds: "secs",
+            justNow: "just now",
+            retag: "retag",
+            comment: "Comment",
+            comments: "Comments",
+            showOneComment: "<i class='icon-comments'></i> Show 1",
+            hideOneComment: "<i class='icon-comments'></i> Hide 1",
+            showNComments: "<i class='icon-comments'></i> Show $n",
+            hideNComments: "<i class='icon-comments'></i> Hide $n",
+            question: "question",
+            questions: "Questions",
+            answer: "Answer",
+            answers: "Answers",
+            posts: "Posts",
+            wiki: "Wiki",
+            reputation: "Reputation",
+            unlike: "<i class=' icon-chevron-up'></i>",
+            like: "<i class=' icon-chevron-up'></i>",
+            likes: "Likes",
+            follow: "Follow",
+            unfollow: "Unfollow",
+            following: "Following",
+            followers: "Followers",
+            awarded: "Awarded",
+            completedBy: "Recently completed by",
+            joined: "Joined",
+            authorizedTypes: "Allowed Upload Types",
+            uploadDialog: {
+                uploadFile: "Choose a file to upload",
+                doUpload: "Upload",
+                fileTooBig: "Your attachment must be $size or smaller.",
+                invalidAttachmentType: "Your attachment must be one of: gif,png,jpg,jpeg,zip,tar.gz,pdf,txt",
+                invalidImageType: "Your image must be one of: gif,png,jpg,jpeg"
+            },
+            previewAndCropDialog: {
+                previewAndResize: "Preview and resize",
+                accept: "Accept"
+            },
+
+            closeQuestionTitle: "Close or Flag",
+            lockPostModalTitle: "Lock",
+            reportQuestionModalTitle: "Report",
+            confirmModalTitle: "Please confirm",
+            convertToAnswerText: "Are you sure you want to convert this comment to answer?",
+            unlockPostModalText: "Are you sure you want to allow comments on this post?",
+            cancelReportModalText: "Are you sure you want to undo reporting this post?",
+
+            reportSuccessText: "This post has been successfully reported.",
+            reportCancelText: "Your report on this post has been sucessfully canceled.",
+
+            commandsMoveToSpace: "Move",
+            commandsGiveReputation: "Reward user",
+            commandsGiveReputationSuccess: "Points awarded successfully",
+            commandsConvertToCommentTitle: "Select comment location",
+            uploadProfilePictureSelectButton: "Select photo from your computer",
+            changeAvatarSelectButton: "Select photo from your computer",
+            changeAvatarSelectNoPhoto: "No photo selected",
+            postControlsRedirectTitle: "Redirect",
+
+            WMDImageDialogText: "Enter image url",
+            WMDLinkDialogText: "Enter url",
+            WMDUploadImage: "upload image",
+            WMDBold: "Strong <strong> Ctrl+B",
+            WMDItalic: "Emphasis <em> Ctrl+I",
+            WMDLink: "Hyperlink <a> Ctrl+L",
+            WMDQuote: "Blockquote <blockquote> Ctrl+Q",
+            WMDCode: "Code Sample <pre><code> Ctrl+K",
+            WMDImage: "Image <img> Ctrl+G",
+            WMDAttachment: "Attachment Ctrl+U",
+            WMDOrderedList: "Numbered List <ol> Ctrl+O",
+            WMDUnorderedList: "Bulleted List <ul> Ctrl+U",
+            WMDHeading: "Heading <h1>/<h2> Ctrl+H",
+            WMDHorizontalRule: "Horizontal Rule <hr> Ctrl+R",
+            WMDUndo: "Undo - Ctrl+Z",
+            WMDRedoWin: "Redo - Ctrl+Y",
+            WMDRedoOther: "Redo - Ctrl+Shift+Z",
+            WMDHelp: "Markdown Help",
+
+            draftMessage: "We noticed that you were previously working on TYPO. What would you like to do now?",
+            draftSaveMessage: "Saving Draft...",
+            draftLoadButton: "Load Draft",
+            draftDeleteButton: "Delete Draft",
+
+            linkMenuInsertLink: "Insert link",
+            linkMenuEditLink: "Edit link",
+            linkMenuUnlink: "Remove link",
+            linkMenuAnchor: "Anchor",
+            linkMenuMailto: "Email",
+            inputTextPrompt: "Text",
+            inputWebPrompt: "URL",
+            inputLinkNewTab: "Open link in a new tab",
+            inputImageForm: "Update Image",
+            inputImageTitle: "Title",
+            inputImagePosition: "Position",
+            inputImagePositionNone: "None",
+            inputImagePositionLeft: "Left",
+            inputImagePositionRight: "Right",
+
+            formattingLabel: "Formatting",
+            formattingParagraph: "Normal Text",
+            formattingQuote: "Quote",
+            formattingCode: "Code",
+            formattingHeader: "Header",
+            formattingBold: "Bold",
+            formattingItalic: "Italic",
+            formattingUnderline: "Underline",
+            formattingFontColor: "Font Color",
+            formattingBackColor: "Back Color",
+            formattingIndent: "Indent",
+            formattingOutdent: "Outdent",
+            formattingAlignment: "Alignment",
+            formattingAlignLeft: "Align text to the left",
+            formattingAlignCenter: "Center text",
+            formattingAlignRight: "Align text to the right",
+            formattingAlignJustify: "Justify text",
+            formattingHorizontalRule: "Insert Horizontal Rule",
+
+            toolTipsInsertImage: "Insert Image",
+            toolTipsInsertFile: "Insert File",
+            toolTipsInsertCode: "Insert Code",
+            toolTipsInsertVideo: "Insert Video",
+            toolTipsInsertTable: "Insert Table",
+            toolTipsorderedList: "Ordered List",
+            toolTipsunorderedList: "Unordered List",
+            toolTipLink: "Link",
+
+            tableInsert: "Insert Table",
+            tableRows: "Rows",
+            tableColumns: "Columns",
+            tableInsertRowAbove: "Add Row Above",
+            tableInsertRowBelow: "Add Row Below",
+            tableInsertColumnLeft: "Add Column Left",
+            tableInsertColumnRight: "Add Column Right",
+            tableDelete: "Delete Table",
+            tableDeleteColumn: "Delete Column",
+            tableDeleteRow: "Delete Row",
+            tableAddHead: "Add Header",
+            tableDeleteHead: "Delete Header",
+
+            uploadOrChoose: "Or Choose",
+            uploadDropFileHere: "Drop file here",
+            uploadFilenameOptional: "Name (optional)",
+
+            emailValidationPrompt: "Resend validation email",
+            emailValidationPromptBody: "Do you want to resend email validation?",
+            invalidReputation: "Error: You must enter a valid Integer without commas."
+        },
+        url: {
+            login: "/users/login.html",
+            register: "/users/register.html",
+            getRevision: "/revisions/get-revision.json",
+            getComments: "/comments/%25ID%25/list.json",
+            uploadFile: "/uploadFile.html",
+            uploadProgress: "/uploadProgress.json",
+            uploadPreview: "/uploadPreview.html",
+            cropUpload: "/cropUpload.json",
+            cancelUpload: "/cancelUpload.json",
+            markdownHelp: "/static/markdown/help.html",
+            updateMarkdown: "/commands/updateMarkdown.json",
+            profile: "/users/{id}/{plug}.html",
+            extractKeywords: "/extract-keywords.json",
+            follow: "/follow/%7BobjId%7D/%7Btype%7D.json",
+            unfollow: "/unfollow/%7BobjId%7D/%7Btype%7D.json",
+            getUserFollows: "/%7Buser%7D/getUserFollows.json",
+            condensedProfileUrl: "/users/%7Buser%7D/condensedProfile.json",
+            viewTopicJSON: "/topics/%7Btopic%7D/view.json",
+            topicIcon: "/topics/%7Btopic%7D/icon.html",
+            topic: "/topics/%7Btopic%7D.html",
+            topicSearch: "/search/topics.json",
+            awardListUrl: "/badge/%7BawardType%7D/%7Bdesc%7D.json",
+            usersSearch: "/users/list.json",
+            usersLookup: "/users/lookup.json",
+            mentionsSearch: "/users/mentionsSearch.json",
+            searchJson: "/search.json",
+            trackJs: "/static/trackJs.json",
+            userAvatar: "/users/%7BuserId%7D/photo/view.html",
+            revisionView: "/revisions/{nodeId}.html"
+        },
+        extraScripts: {
+            jcrop: {
+                js: '/themes/thub/scripts/jcrop/js/jquery.Jcrop.js',
+                css: '/themes/thub/scripts/jcrop/css/jquery.Jcrop.css'
+            }
+        },
+        options: {
+        	maxTopics: '5',
+            gravatarEnabled: true
+        },
+        additional: {"recaptchaKey":"6LdgnSUUAAAAAAqL8W_eR-OFMVywBpdvXECfMXtd","TH_CSRF":"a-5281313650784184126"},
+        useRelativeTime: true,
+        userRealName: false
+    };
+    pageContext.i18n["delete"] = "Delete";
+</script>
+
+        <!--[if lte IE 10]>
+    <script src="/themes/base/scripts/compatibility/indexOf.js" type="text/javascript"></script>
+    <![endif]-->
+    <!--[if lt IE 9]>
+    <script src="/themes/base/scripts/compatibility/document.getSelection.js" type="text/javascript"></script>
+    <script src="/themes/base/scripts/compatibility/ierange-m2-packed.js" type="text/javascript"></script>
+    <style type="text/css">
+        input[type="password"] {
+            font-family: Arial;
+        }
+    </style>
+    <![endif]-->
+
+<script type="text/javascript" src="./Setting the parent of a transform which resides in a prefab is disabled to prevent data corruption. WHY___ - Unity Answers_files/combined.js.h-1327444535.pack" charset="utf-8"></script>
+
+
+<script type="text/javascript">
+(function ($) {
+    "use strict";
+
+    $.extend($.fn.select2.defaults, {
+        formatNoMatches: function () {
+            return 'No matches found';
+        },
+        formatInputTooShort: function (input, min) {
+            var n = min - input.length;
+            if (n == 1) {
+                return 'Please enter 1 more character.';
+            }
+            else {
+                var return_str = "Please enter $n more characters.";
+                return return_str.replace("$n", n.toString());
+            }
+        },
+        formatInputTooLong: function (input, max) {
+            var n = input.length - max;
+            if (n == 1)
+                return 'Please delete 1 character.';
+            else {
+                var return_str = 'Please delete $n characters.';
+                return return_str.replace("$n", n.toString());
+            }
+        },
+        formatSelectionTooBig: function (limit) {
+            if (limit == 1)
+                return 'You can only select 1 item.';
+            else {
+                var return_str = 'You can only select $n items.';
+                return return_str.replace("$n", limit.toString());
+            }
+        },
+        formatLoadMore: function (pageNumber) {
+            return 'Loading more results...';
+        },
+        formatSearching: function () {
+            return 'Searching...';
+        }
+    });
+})(jQuery);
+</script>
+
+    <script type="text/javascript" src="./Setting the parent of a transform which resides in a prefab is disabled to prevent data corruption. WHY___ - Unity Answers_files/modernizr.min.js"></script>
+    <script src="./Setting the parent of a transform which resides in a prefab is disabled to prevent data corruption. WHY___ - Unity Answers_files/unity.js" type="text/javascript"></script>
+
+    <script src="./Setting the parent of a transform which resides in a prefab is disabled to prevent data corruption. WHY___ - Unity Answers_files/jquery.tmpl.js" type="text/javascript"></script>
+    <link rel="shortcut icon" href="http://answers.unity3d.com/themes/thub/images/favicon.ico">
+
+    <!-- Core Bootstrap css + Kickstrap styles -->
+<link rel="stylesheet" type="text/css" href="./Setting the parent of a transform which resides in a prefab is disabled to prevent data corruption. WHY___ - Unity Answers_files/combined.css.h1838984638.pack" charset="utf-8"><link rel="stylesheet" type="text/css" href="./Setting the parent of a transform which resides in a prefab is disabled to prevent data corruption. WHY___ - Unity Answers_files/combined.css.h-1263525964.pack" charset="utf-8">
+	<link rel="stylesheet" href="./Setting the parent of a transform which resides in a prefab is disabled to prevent data corruption. WHY___ - Unity Answers_files/unity.css">
+
+    <!--[if lt IE 9]>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            var $style;
+            $style = $('<style type="text/css">:before,:after{content:none !important}</style>');
+            $('head').append($style);
+            return setTimeout((function() {
+                return $style.remove();
+            }), 0);
+        });
+    </script>
+    <![endif]-->
+
+    <script type="text/javascript">
+        $(document).ready(function(){pageContext.options.commentsAttachmentsEnabled = true});
+        $(document).ready(function(){
+                commands["convertToComment"].onSuccess = function(data) {
+	                setTimeout(function(){
+        	    		commandUtils.reloadPage(); //wait 1 second before reloading
+        		}, 1000);
+                };
+        });
+    </script>
+
+        
+                <!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-NXN7P4');</script>
+<!-- End Google Tag Manager -->
+<script type="text/javascript">
+    if(window.location.pathname === "/users/register.html") {
+            window.location.href="https://id.unity.com/account/new";
+    }
+</script>
+
+
+
+        
+
+
+
+        
+
+    
+
+    <script type="text/javascript">
+        $(function () {
+pageContext.i18n.modTalk = 'moderation talk';
+pageContext.i18n.replyToComment = 'Reply';
+pageContext.i18n.modTalkEmpty = 'moderation talk is empty';
+pageContext.url.getModTalk = "/comments/%25ID%25/listModTalk.json";
+pageContext.url.possibleCommentRecipients = "/comments/%ID%/possibleRecipients.json";
+pageContext.url.commentEdit = '/comments/%25ID%25/edit.html';
+pageContext.url.commentView = '/comments/%ID%/view.html';
+
+pageContext.i18n.commentVisibility = {
+'full': 'Viewable by all users',
+'op': 'Viewable by the original poster',
+'mod': 'Viewable by moderators',
+'opAndMod': 'Viewable by moderators and the original poster',
+'other': 'Advanced visibility',
+'dialogTitle': 'Comment visibility',
+'selectGroups': 'Visible to groups',
+'selectOther': 'Other recipients',
+'selectOriginalPoster': 'Original poster',
+'selectModerators': 'Moderators',
+'selectAssignees': 'Asked to answer users'
+};
+
+pageContext.i18n.commentMenuLabels = {
+'comment-edit': 'comments.menu.edit',
+'comment-delete': 'comments.menu.delete',
+'comment-convert': 'comments.menu.convert'
+};pageContext.i18n.answer= {
+	bestAnswer: 'Best Answer',
+	controlBar : {
+		accept: 'Accept',
+		unaccept: 'Unaccept',
+		acceptCommand: 'Accept this answer as correct',
+		cancelAcceptedCommand: 'Remove this answers accepted status'
+	}
+};
+    window.croles = {
+        u: false, op: false, m: false,
+        og: false, as: false, ag: false,
+        dc: false, doc: false, eo: false, ea: false
+    };
+
+    tools.init({
+        q: {
+            e: false, ew: false, eo: false,
+            r: false, ro: false,
+            d: false, dow: false, fv: false,
+            c: false, co: false,
+            p: false, tm: false
+            , ms: false, mos: false
+        },
+        n: {
+            f: false, vf: false, vfo: false,
+            vr: false, vro: false,
+            c: false, co: false,
+            vu: false, vd: false,
+            w: false, wo: false,
+            l: false
+        },
+        c: {
+            e: false, eo: false,
+            d: false, dow: false,
+            ta: false, tao: false,
+            l: false
+        },
+        a: {
+            e: false, ew: false, eo: false,
+            d: false, dow: false,
+            a: false, aoq: false, ao: false,
+            tc: false, tco: false,
+            p: false, tm: false
+        },
+        pc: croles
+    }, {
+        tc: true,
+        nsc: false
+    });
+
+            commandUtils.initializeLabels();
+        });
+    </script>
+
+<script src="./Setting the parent of a transform which resides in a prefab is disabled to prevent data corruption. WHY___ - Unity Answers_files/jsapi" type="text/javascript"></script><script src="./Setting the parent of a transform which resides in a prefab is disabled to prevent data corruption. WHY___ - Unity Answers_files/jsapi" type="text/javascript"></script><link type="text/css" href="./Setting the parent of a transform which resides in a prefab is disabled to prevent data corruption. WHY___ - Unity Answers_files/default+en.css" rel="stylesheet"><link type="text/css" href="./Setting the parent of a transform which resides in a prefab is disabled to prevent data corruption. WHY___ - Unity Answers_files/default.css" rel="stylesheet"><script type="text/javascript" src="./Setting the parent of a transform which resides in a prefab is disabled to prevent data corruption. WHY___ - Unity Answers_files/default+en.I.js"></script><link type="text/css" href="./Setting the parent of a transform which resides in a prefab is disabled to prevent data corruption. WHY___ - Unity Answers_files/default+en.css" rel="stylesheet"><link type="text/css" href="./Setting the parent of a transform which resides in a prefab is disabled to prevent data corruption. WHY___ - Unity Answers_files/default.css" rel="stylesheet"><script type="text/javascript" src="./Setting the parent of a transform which resides in a prefab is disabled to prevent data corruption. WHY___ - Unity Answers_files/default+en.I.js"></script><style type="text/css">
+.gsc-control-cse {
+font-family: Arial, sans-serif;
+border-color: #FFFFFF;
+background-color: #FFFFFF;
+}
+.gsc-control-cse .gsc-table-result {
+font-family: Arial, sans-serif;
+}
+input.gsc-input, .gsc-input-box, .gsc-input-box-hover, .gsc-input-box-focus {
+border-color: #D9D9D9;
+}
+input.gsc-search-button, input.gsc-search-button:hover, input.gsc-search-button:focus {
+border-color: #2F5BB7;
+background-color: #357AE8;
+background-image: none;
+filter: none;
+}
+.gsc-tabHeader.gsc-tabhInactive {
+border-color: #CCCCCC;
+background-color: #FFFFFF;
+}
+.gsc-tabHeader.gsc-tabhActive {
+border-color: #CCCCCC;
+border-bottom-color: #FFFFFF;
+background-color: #FFFFFF;
+}
+.gsc-tabsArea {
+border-color: #CCCCCC;
+}
+.gsc-webResult.gsc-result,
+.gsc-results .gsc-imageResult {
+border-color: #FFFFFF;
+background-color: #FFFFFF;
+}
+.gsc-webResult.gsc-result:hover,
+.gsc-imageResult:hover {
+border-color: #FFFFFF;
+background-color: #FFFFFF;
+}
+.gs-webResult.gs-result a.gs-title:link,
+.gs-webResult.gs-result a.gs-title:link b,
+.gs-imageResult a.gs-title:link,
+.gs-imageResult a.gs-title:link b {
+color: #5284BD;
+}
+.gs-webResult.gs-result a.gs-title:visited,
+.gs-webResult.gs-result a.gs-title:visited b,
+.gs-imageResult a.gs-title:visited,
+.gs-imageResult a.gs-title:visited b {
+color: #5284BD;
+}
+.gs-webResult.gs-result a.gs-title:hover,
+.gs-webResult.gs-result a.gs-title:hover b,
+.gs-imageResult a.gs-title:hover,
+.gs-imageResult a.gs-title:hover b {
+color: #5284BD;
+}
+.gs-webResult.gs-result a.gs-title:active,
+.gs-webResult.gs-result a.gs-title:active b,
+.gs-imageResult a.gs-title:active,
+.gs-imageResult a.gs-title:active b {
+color: #5284BD;
+}
+.gsc-cursor-page {
+color: #5284BD;
+}
+a.gsc-trailing-more-results:link {
+color: #5284BD;
+}
+.gs-webResult .gs-snippet,
+.gs-imageResult .gs-snippet,
+.gs-fileFormatType {
+color: #333333;
+}
+.gs-webResult div.gs-visibleUrl,
+.gs-imageResult div.gs-visibleUrl {
+color: #009933;
+}
+.gs-webResult div.gs-visibleUrl-short {
+color: #009933;
+}
+.gs-webResult div.gs-visibleUrl-short {
+display: none;
+}
+.gs-webResult div.gs-visibleUrl-long {
+display: block;
+}
+.gs-promotion div.gs-visibleUrl-short {
+display: none;
+}
+.gs-promotion div.gs-visibleUrl-long {
+display: block;
+}
+.gsc-cursor-box {
+border-color: #FFFFFF;
+}
+.gsc-results .gsc-cursor-box .gsc-cursor-page {
+border-color: #CCCCCC;
+background-color: #FFFFFF;
+color: #5284BD;
+}
+.gsc-results .gsc-cursor-box .gsc-cursor-current-page {
+border-color: #CCCCCC;
+background-color: #FFFFFF;
+color: #5284BD;
+}
+.gsc-webResult.gsc-result.gsc-promotion {
+border-color: #F6F6F6;
+background-color: #F6F6F6;
+}
+.gsc-completion-title {
+color: #5284BD;
+}
+.gsc-completion-snippet {
+color: #333333;
+}
+.gs-promotion a.gs-title:link,
+.gs-promotion a.gs-title:link *,
+.gs-promotion .gs-snippet a:link {
+color: #1155CC;
+}
+.gs-promotion a.gs-title:visited,
+.gs-promotion a.gs-title:visited *,
+.gs-promotion .gs-snippet a:visited {
+color: #1155CC;
+}
+.gs-promotion a.gs-title:hover,
+.gs-promotion a.gs-title:hover *,
+.gs-promotion .gs-snippet a:hover {
+color: #1155CC;
+}
+.gs-promotion a.gs-title:active,
+.gs-promotion a.gs-title:active *,
+.gs-promotion .gs-snippet a:active {
+color: #1155CC;
+}
+.gs-promotion .gs-snippet,
+.gs-promotion .gs-title .gs-promotion-title-right,
+.gs-promotion .gs-title .gs-promotion-title-right * {
+color: #333333;
+}
+.gs-promotion .gs-visibleUrl,
+.gs-promotion .gs-visibleUrl-short {
+color: #009933;
+}
+.gsc-input input.gsc-input {
+background: none repeat scroll 0% 0% white !important;
+}</style><style type="text/css">.gscb_a{display:inline-block;font:27px/13px arial,sans-serif}.gsst_a .gscb_a{color:#a1b9ed;cursor:pointer}.gsst_a:hover .gscb_a,.gsst_a:focus .gscb_a{color:#36c}.gsst_a{display:inline-block}.gsst_a{cursor:pointer;padding:0 4px}.gsst_a:hover{text-decoration:none!important}.gsst_b{font-size:16px;padding:0 2px;position:relative;user-select:none;-webkit-user-select:none;white-space:nowrap}.gsst_e{opacity:0.55;}.gsst_a:hover .gsst_e,.gsst_a:focus .gsst_e{opacity:0.72;}.gsst_a:active .gsst_e{opacity:1;}.gsst_f{background:white;text-align:left}.gsst_g{background-color:white;border:1px solid #ccc;border-top-color:#d9d9d9;box-shadow:0 2px 4px rgba(0,0,0,0.2);-webkit-box-shadow:0 2px 4px rgba(0,0,0,0.2);margin:-1px -3px;padding:0 6px}.gsst_h{background-color:white;height:1px;margin-bottom:-1px;position:relative;top:-1px}.gsib_a{width:100%;padding:4px 6px 0}.gsib_a,.gsib_b{vertical-align:top}.gssb_c{border:0;position:absolute;z-index:989}.gssb_e{border:1px solid #ccc;border-top-color:#d9d9d9;box-shadow:0 2px 4px rgba(0,0,0,0.2);-webkit-box-shadow:0 2px 4px rgba(0,0,0,0.2);cursor:default}.gssb_f{visibility:hidden;white-space:nowrap}.gssb_k{border:0;display:block;position:absolute;top:0;z-index:988}.gsdd_a{border:none!important}.gscsep_a{display:none}.gsq_a{padding:0}.gssb_a{padding:0 7px}.gssb_a,.gssb_a td{white-space:nowrap;overflow:hidden;line-height:22px}#gssb_b{font-size:11px;color:#36c;text-decoration:none}#gssb_b:hover{font-size:11px;color:#36c;text-decoration:underline}.gssb_g{text-align:center;padding:8px 0 7px;position:relative}.gssb_h{font-size:15px;height:28px;margin:0.2em;-webkit-appearance:button}.gssb_i{background:#eee}.gss_ifl{visibility:hidden;padding-left:5px}.gssb_i .gss_ifl{visibility:visible}a.gssb_j{font-size:13px;color:#36c;text-decoration:none;line-height:100%}a.gssb_j:hover{text-decoration:underline}.gssb_l{height:1px;background-color:#e5e5e5}.gssb_m{color:#000;background:#fff}.gsfe_a{border:1px solid #b9b9b9;border-top-color:#a0a0a0;box-shadow:inset 0px 1px 2px rgba(0,0,0,0.1);-moz-box-shadow:inset 0px 1px 2px rgba(0,0,0,0.1);-webkit-box-shadow:inset 0px 1px 2px rgba(0,0,0,0.1);}.gsfe_b{border:1px solid #4d90fe;outline:none;box-shadow:inset 0px 1px 2px rgba(0,0,0,0.3);-moz-box-shadow:inset 0px 1px 2px rgba(0,0,0,0.3);-webkit-box-shadow:inset 0px 1px 2px rgba(0,0,0,0.3);}.gssb_a{padding:0 9px}.gsib_a{padding-right:8px;padding-left:8px}.gsst_a{padding-top:3px}.gssb_e{border:0}.gssb_l{margin:5px 0}#gsc-i-id1::-webkit-input-placeholder{font-size:14px}#gsc-i-id1:-moz-placeholder{font-size:14px}#gsc-i-id1::-moz-placeholder{font-size:14px}#gsc-i-id1:-ms-input-placeholder{font-size:14px}#gsc-i-id1:focus::-webkit-input-placeholder{color:transparent}#gsc-i-id1:focus:-moz-placeholder{color:transparent}#gsc-i-id1:focus::-moz-placeholder{color:transparent}#gsc-i-id1:focus:-ms-input-placeholder{color:transparent}.gssb_c .gsc-completion-container{position:static}.gssb_c{z-index:5000}.gsc-completion-container table{background:transparent;font-size:inherit;font-family:inherit}.gssb_c > tbody > tr,.gssb_c > tbody > tr > td,.gssb_d,.gssb_d > tbody > tr,.gssb_d > tbody > tr > td,.gssb_e,.gssb_e > tbody > tr,.gssb_e > tbody > tr > td{padding:0;margin:0;border:0}.gssb_a table,.gssb_a table tr,.gssb_a table tr td{padding:0;margin:0;border:0}</style><style type="text/css">.gscb_a{display:inline-block;font:27px/13px arial,sans-serif}.gsst_a .gscb_a{color:#a1b9ed;cursor:pointer}.gsst_a:hover .gscb_a,.gsst_a:focus .gscb_a{color:#36c}.gsst_a{display:inline-block}.gsst_a{cursor:pointer;padding:0 4px}.gsst_a:hover{text-decoration:none!important}.gsst_b{font-size:16px;padding:0 2px;position:relative;user-select:none;-webkit-user-select:none;white-space:nowrap}.gsst_e{opacity:0.55;}.gsst_a:hover .gsst_e,.gsst_a:focus .gsst_e{opacity:0.72;}.gsst_a:active .gsst_e{opacity:1;}.gsst_f{background:white;text-align:left}.gsst_g{background-color:white;border:1px solid #ccc;border-top-color:#d9d9d9;box-shadow:0 2px 4px rgba(0,0,0,0.2);-webkit-box-shadow:0 2px 4px rgba(0,0,0,0.2);margin:-1px -3px;padding:0 6px}.gsst_h{background-color:white;height:1px;margin-bottom:-1px;position:relative;top:-1px}.gsib_a{width:100%;padding:4px 6px 0}.gsib_a,.gsib_b{vertical-align:top}.gssb_c{border:0;position:absolute;z-index:989}.gssb_e{border:1px solid #ccc;border-top-color:#d9d9d9;box-shadow:0 2px 4px rgba(0,0,0,0.2);-webkit-box-shadow:0 2px 4px rgba(0,0,0,0.2);cursor:default}.gssb_f{visibility:hidden;white-space:nowrap}.gssb_k{border:0;display:block;position:absolute;top:0;z-index:988}.gsdd_a{border:none!important}.gscsep_a{display:none}.gsq_a{padding:0}.gssb_a{padding:0 7px}.gssb_a,.gssb_a td{white-space:nowrap;overflow:hidden;line-height:22px}#gssb_b{font-size:11px;color:#36c;text-decoration:none}#gssb_b:hover{font-size:11px;color:#36c;text-decoration:underline}.gssb_g{text-align:center;padding:8px 0 7px;position:relative}.gssb_h{font-size:15px;height:28px;margin:0.2em;-webkit-appearance:button}.gssb_i{background:#eee}.gss_ifl{visibility:hidden;padding-left:5px}.gssb_i .gss_ifl{visibility:visible}a.gssb_j{font-size:13px;color:#36c;text-decoration:none;line-height:100%}a.gssb_j:hover{text-decoration:underline}.gssb_l{height:1px;background-color:#e5e5e5}.gssb_m{color:#000;background:#fff}.gsfe_a{border:1px solid #b9b9b9;border-top-color:#a0a0a0;box-shadow:inset 0px 1px 2px rgba(0,0,0,0.1);-moz-box-shadow:inset 0px 1px 2px rgba(0,0,0,0.1);-webkit-box-shadow:inset 0px 1px 2px rgba(0,0,0,0.1);}.gsfe_b{border:1px solid #4d90fe;outline:none;box-shadow:inset 0px 1px 2px rgba(0,0,0,0.3);-moz-box-shadow:inset 0px 1px 2px rgba(0,0,0,0.3);-webkit-box-shadow:inset 0px 1px 2px rgba(0,0,0,0.3);}.gssb_a{padding:0 9px}.gsib_a{padding-right:8px;padding-left:8px}.gsst_a{padding-top:3px}.gssb_e{border:0}.gssb_l{margin:5px 0}#gsc-i-id1::-webkit-input-placeholder{font-size:14px}#gsc-i-id1:-moz-placeholder{font-size:14px}#gsc-i-id1::-moz-placeholder{font-size:14px}#gsc-i-id1:-ms-input-placeholder{font-size:14px}#gsc-i-id1:focus::-webkit-input-placeholder{color:transparent}#gsc-i-id1:focus:-moz-placeholder{color:transparent}#gsc-i-id1:focus::-moz-placeholder{color:transparent}#gsc-i-id1:focus:-ms-input-placeholder{color:transparent}.gssb_c .gsc-completion-container{position:static}.gssb_c{z-index:5000}.gsc-completion-container table{background:transparent;font-size:inherit;font-family:inherit}.gssb_c > tbody > tr,.gssb_c > tbody > tr > td,.gssb_d,.gssb_d > tbody > tr,.gssb_d > tbody > tr > td,.gssb_e,.gssb_e > tbody > tr,.gssb_e > tbody > tr > td{padding:0;margin:0;border:0}.gssb_a table,.gssb_a table tr,.gssb_a table tr td{padding:0;margin:0;border:0}</style></head>
+
+<body style="">
+<div id="not-footer">
+
+<header id="section-header" class="section section-header mb40">
+	<div class="header-wrapper">
+		<div class="top-fill">
+			<div class="wrap">
+				<div class="fill"></div>
+			</div>
+		</div>
+		<nav class="top-nav">
+			<div class="wrap">
+				<div class="shard"></div>
+				<div class="logo"><a href="http://unity3d.com/"></a></div>
+				<ul>
+					<li><a href="http://unity3d.com/unity">Unity</a></li>
+					<li><a href="http://unity3d.com/services">Services</a></li>
+					<li><a href="http://unity3d.com/showcase">Made with Unity</a></li>
+					<li><a href="http://unity3d.com/learn">Learn</a></li>
+					<li><a href="http://unity3d.com/community" class="active-trail">Community</a></li>
+					<li class="m-right last"><a href="http://unity3d.com/asset-store">Asset Store</a></li>
+					<li class="m-right"><a href="http://unity3d.com/get-unity" title="">Get Unity</a></li>
+				</ul>
+				<div class="user-icon"></div>
+				<div class="search-icon"></div>
+				<div class="search-wrapper">
+					<script>(function(){ var cx = '002645370080425984202:i_d7wpkpdzy'; var gcse = document.createElement('script'); gcse.type = 'text/javascript'; gcse.async = true; gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//www.google.com/cse/cse.js?cx=' + cx; var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(gcse, s); })();</script>
+					<div class="search-box"><div id="___gcse_0"><div class="gsc-control-searchbox-only gsc-control-searchbox-only-en" dir="ltr"><form class="gsc-search-box gsc-search-box-tools" accept-charset="utf-8"><table cellspacing="0" cellpadding="0" class="gsc-search-box"><tbody><tr><td class="gsc-input"><div class="gsc-input-box" id="gsc-iw-id1"><table cellspacing="0" cellpadding="0" id="gs_id50" class="gstl_50 " style="width: 100%; padding: 0px;"><tbody><tr><td id="gs_tti50" class="gsib_a"><input autocomplete="off" type="text" size="10" class="gsc-input" name="search" title="search" id="gsc-i-id1" style="width: 100%; padding: 0px; border: none; margin: -0.0625em 0px 0px; height: 1.25em; outline: none;" dir="ltr" spellcheck="false"></td><td class="gsib_b"><div class="gsst_b" id="gs_st50" dir="ltr"><a class="gsst_a" href="javascript:void(0)" style="display: none;"><span class="gscb_a" id="gs_cb50">×</span></a></div></td></tr></tbody></table></div><input type="hidden" name="bgresponse" id="bgresponse"></td><td class="gsc-search-button"><input type="image" src="./Setting the parent of a transform which resides in a prefab is disabled to prevent data corruption. WHY___ - Unity Answers_files/search_box_icon.png" class="gsc-search-button gsc-search-button-v2" title="search"></td><td class="gsc-clear-button"><div class="gsc-clear-button" title="clear results">&nbsp;</div></td></tr></tbody></table><table cellspacing="0" cellpadding="0" class="gsc-branding"><tbody><tr style="display: none;"><td class="gsc-branding-user-defined"></td><td class="gsc-branding-text"><div class="gsc-branding-text">powered by</div></td><td class="gsc-branding-img"><img src="./Setting the parent of a transform which resides in a prefab is disabled to prevent data corruption. WHY___ - Unity Answers_files/googlelogo_grey_46x15dp.png" class="gsc-branding-img" srcset="https://www.google.com/cse/static/images/2x/googlelogo_grey_46x15dp.png 2x"></td></tr></tbody></table></form></div></div></div>
+				</div>
+				<div class="user-wrapper">
+			    
+			    <div class="content clear">
+			    
+			    
+			    
+			    	
+			    		<h2>UNITY ACCOUNT</h2>
+			    		<small class="bb mb15">You need a Unity Account to shop in the Online and Asset Stores, participate in the Unity Community and manage your license portfolio.</small>
+			    		
+			    				
+			    		<a class="blue-btn sbtn mr10" id="login" href="http://answers.unity3d.com/users/login.html">Login</a>
+			    			
+			    			
+			    	    <a href="http://answers.unity3d.com/users/register.html" class="gray-btn sbtn">Create account</a>
+			    	
+			    
+				</div>
+			</div>
+		</div></nav>
+		<nav class="sub-nav">
+			<div class="wrap">
+				<div class="sub-fill"></div>
+				<ul class="secondary-menu">
+				  <li class="menu-383 first"><a href="http://forum.unity3d.com/" title="">Forums</a></li>
+				  <li class="menu-384"><a class="active-trail" href="http://answers.unity3d.com/" title="">Answers</a></li>
+				  <li class="menu-385"><a href="http://feedback.unity3d.com/" title="">Feedback</a></li>
+				  <li class="menu-767"><a href="http://issuetracker.unity3d.com/" title="">Issue Tracker</a></li>
+				  <li class="menu-933"><a href="http://blogs.unity3d.com/" title="">Blog</a></li>
+				  <li class="menu-764"><a href="http://evangelists.unity3d.com/" title="">Evangelists</a></li>
+				  <li class="menu-860 last"><a href="http://unity3d.com/community/user-groups" title="">User Groups</a></li>
+				</ul>
+				<script> var submore = 'More'; </script>
+			</div>
+		</nav>
+	</div>
+</header>
+<nav class="mobile-menu">
+	<div class="wrap">
+		<div class="mobile-search">
+			<script>(function(){ var cx = '002645370080425984202:i_d7wpkpdzy'; var gcse = document.createElement('script'); gcse.type = 'text/javascript'; gcse.async = true; gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//www.google.com/cse/cse.js?cx=' + cx; var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(gcse, s); })();</script>
+			<div class="search-box"><div id="___gcse_1"><div class="gsc-control-searchbox-only gsc-control-searchbox-only-en" dir="ltr"><form class="gsc-search-box gsc-search-box-tools" accept-charset="utf-8"><table cellspacing="0" cellpadding="0" class="gsc-search-box"><tbody><tr><td class="gsc-input"><div class="gsc-input-box" id="gsc-iw-id2"><table cellspacing="0" cellpadding="0" id="gs_id51" class="gstl_51 " style="width: 100%; padding: 0px;"><tbody><tr><td id="gs_tti51" class="gsib_a"><input autocomplete="off" type="text" size="10" class="gsc-input" name="search" title="search" id="gsc-i-id2" dir="ltr" spellcheck="false" style="width: 100%; padding: 0px; border: none; margin: -0.0625em 0px 0px; height: 1.25em; outline: none;"></td><td class="gsib_b"><div class="gsst_b" id="gs_st51" dir="ltr"><a class="gsst_a" href="javascript:void(0)" style="display: none;"><span class="gscb_a" id="gs_cb51">×</span></a></div></td></tr></tbody></table></div><input type="hidden" name="bgresponse" id="bgresponse"></td><td class="gsc-search-button"><input type="image" src="./Setting the parent of a transform which resides in a prefab is disabled to prevent data corruption. WHY___ - Unity Answers_files/search_box_icon.png" class="gsc-search-button gsc-search-button-v2" title="search"></td><td class="gsc-clear-button"><div class="gsc-clear-button" title="clear results">&nbsp;</div></td></tr></tbody></table><table cellspacing="0" cellpadding="0" class="gsc-branding"><tbody><tr style="display: none;"><td class="gsc-branding-user-defined"></td><td class="gsc-branding-text"><div class="gsc-branding-text">powered by</div></td><td class="gsc-branding-img"><img src="./Setting the parent of a transform which resides in a prefab is disabled to prevent data corruption. WHY___ - Unity Answers_files/googlelogo_grey_46x15dp.png" class="gsc-branding-img" srcset="https://www.google.com/cse/static/images/2x/googlelogo_grey_46x15dp.png 2x"></td></tr></tbody></table></form></div></div></div>
+		</div>
+		<div class="menu">
+			<h2>Navigation</h2>
+			<ul>
+				<li><a href="http://unity3d.com/">Home</a></li>
+				<li><a href="http://unity3d.com/unity">Unity</a></li>
+				<li><a href="http://unity3d.com/industries">Industries</a></li>
+				<li><a href="http://unity3d.com/showcase">Made with Unity</a></li>
+				<li><a href="http://unity3d.com/learn">Learn</a></li>
+				<li><a href="http://unity3d.com/community" class="active-trail">Community</a>
+				  <ul class="secondary-menu">
+				    <li class="menu-383 first"><a href="http://forum.unity3d.com/" title="">Forums</a></li>
+				    <li class="menu-384"><a class="active-trail" href="http://answers.unity3d.com/" title="">Answers</a></li>
+				    <li class="menu-385"><a href="http://feedback.unity3d.com/" title="">Feedback</a></li>
+				    <li class="menu-767"><a href="http://issuetracker.unity3d.com/" title="">Issue Tracker</a></li>
+				    <li class="menu-933"><a href="http://blogs.unity3d.com/" title="">Blog</a></li>
+				    <li class="menu-764"><a href="http://evangelists.unity3d.com/" title="">Evangelists</a></li>
+				    <li class="menu-860 last"><a href="http://unity3d.com/community/user-groups" title="">User Groups</a></li>
+				  </ul>
+				</li>
+				<li><a href="http://unity3d.com/get-unity" title="">Get Unity</a></li>
+				<li><a href="https://www.assetstore.unity3d.com/">Asset Store</a></li>
+			</ul>
+		</div>
+		
+		<div class="user">
+	    
+	    <div class="content clear">
+	    
+	    
+	    
+	    	
+	    		<h2>Unity account</h2>
+	    		<small class="mb15 cl">You need a Unity Account to shop in the Online and Asset Stores, participate in the Unity Community and manage your license portfolio.</small>
+	    		
+	    				
+	    		<a id="login" href="http://answers.unity3d.com/users/login.html" class="blue-btn sbtn mr10">Login</a>
+	    			
+	    			
+	    	    <a href="http://answers.unity3d.com/users/register.html" class="gray-btn sbtn">Create account</a>
+	    	
+	    </div>
+		</div>
+		<div class="lang clear">
+			<h2>Language</h2>
+			<div class="language-switcher">
+				<ul id="mobile-lang" class="languages">
+					<li><a href="http://china.unity3d.com/" data-lang="cn"><span class="translation_missing" title="translation missing: en.layouts.language_selector.lang.chinese">Chinese</span></a></li>
+					<li><a href="http://spanish.unity3d.com/" data-lang="es"><span class="translation_missing" title="translation missing: en.layouts.language_selector.lang.spanish">Spanish</span></a></li>
+					<li><a href="http://japan.unity3d.com/" data-lang="jp"><span class="translation_missing" title="translation missing: en.layouts.language_selector.lang.japanese">Japanese</span></a></li>
+					<li><a href="http://www.unity3dkorea.com/" data-lang="kr"><span class="translation_missing" title="translation missing: en.layouts.language_selector.lang.korean">Korean</span></a></li>
+					<li><a href="http://portuguese.unity3d.com/" data-lang="pt"><span class="translation_missing" title="translation missing: en.layouts.language_selector.lang.portuguese">Portuguese</span></a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</nav>    
+<section id="section-content" class="section section-content">
+	<header class="m-header clear">
+		<div class="m-logo"><a href="http://unity3d.com/"></a></div>
+		<div class="m-navbtn rel"><div class="lines"></div></div>
+		<div class="m-searchbtn"></div>
+		<div class="m-userbtn"></div>
+	</header>
+
+
+        <div>
+                <!-- Google Tag Manager (noscript) -->
+<noscript>&lt;iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NXN7P4"
+height="0" width="0" style="display:none;visibility:hidden"&gt;&lt;/iframe&gt;</noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+        </div>
+
+
+<div id="main-navbar" class="navbar navbar-fixed-top">
+    
+    <div class="navbar-inner">
+        <div class="container">
+            <div class="row-fluid">
+                <div class="search-wrapper span8">
+                    <a type="button" class="btn btn-navbar off-canvas-nav-btn" href="http://answers.unity3d.com/questions/341714/setting-the-parent-of-a-transform-which-resides-in.html#sidr">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    </a>
+                    <form action="http://answers.unity3d.com/search.html" method="get" class="navbar-search">
+                        <input type="hidden" id="search-filters" name="f" value="">
+                        <input type="hidden" id="search-types" name="type" value="question">
+                        <input type="hidden" id="search-redirect" name="redirect" value="search/search">
+                        <input type="hidden" id="search-sort" name="sort" value="relevance">
+                        <span role="status" aria-live="polite" class="ui-helper-hidden-accessible"></span><input type="text" class="search-query ui-autocomplete-input" value="" name="q" id="search-query" data-provide="typeahead" data-items="4" autocomplete="off" placeholder="Find posts and topics...">
+                        <i class="icon-search"></i>
+
+                        <script type="text/javascript">
+                            $(document).ready(function () {
+//                                var ie7 = $.browser.msie && $.browser.version <= 7;
+
+                                var label = $('.navbar-search label[for=search_box]')
+                                label.css({
+                                    position: 'absolute',
+                                    top: 4,
+                                    left: 17,
+                                    zindex: 10
+                                });
+                                $('#search_box')
+                                        .focus(function () {
+                                            label.hide()
+                                        })
+                                        .blur(function () {
+                                            this.value == "" ? label.show() : label.hide()
+                                        })
+                            });
+                        </script>
+                        <div id="searchResultsAutoComplete"><ul class="ui-autocomplete ui-front ui-menu ui-widget ui-widget-content ui-corner-all" id="ui-id-1" tabindex="0" style="display: none;"></ul></div>
+                    </form>
+                </div>
+
+                <ul class="nav-links span4">
+                    <li>
+                            <div class="btn-group navbar-action">
+
+                                <a id="create-button" class="btn btn-success" href="http://answers.unity3d.com/questions/ask.html?space=8">Ask a question</a>
+                            </div>
+                    </li>
+                        <li class="dropdown">
+                            <a href="http://answers.unity3d.com/questions/341714/setting-the-parent-of-a-transform-which-resides-in.html#" id="spaces-menu-dropdown" class="dropdown-toggle" data-toggle="dropdown">
+Spaces                                <i class="icon-caret-down"></i>
+                            </a>
+                            <ul class="dropdown-menu pull-right">
+                                    <li class="active">
+                                        <a class="main-nav" href="http://answers.unity3d.com/spaces/8/index.html">Default</a>
+                                    </li><li>
+                                        <a class="main-nav" href="http://answers.unity3d.com/spaces/9/index.html">Help Room</a>
+                                    </li><li>
+                                        <a class="main-nav" href="http://answers.unity3d.com/spaces/12/index.html">META</a>
+                                    </li><li>
+                                        <a class="main-nav" href="http://answers.unity3d.com/spaces/11/index.html">Moderators</a>
+                            </li></ul>
+                        </li>
+                    <li class="dropdown">
+                        <a href="http://answers.unity3d.com/questions/341714/setting-the-parent-of-a-transform-which-resides-in.html#" id="explore-menu-dropdown" class="dropdown-toggle" title="Explore" data-toggle="dropdown">
+                            <i class="icon-sitemap"></i>
+                            <i class="icon-caret-down"></i>
+                        </a>
+                        <ul class="dropdown-menu pull-right">
+                            <li>
+                                <a href="http://answers.unity3d.com/topics.html">Topics</a>
+                            </li>
+
+                                <li>
+                                    <a href="http://answers.unity3d.com/questions/index.html">Questions</a>
+                                </li>
+
+                            <li>
+                                <a href="http://answers.unity3d.com/users/index.html">Users</a>
+                            </li>
+
+                            <li>
+                                <a href="http://answers.unity3d.com/badge/types.html">Badges</a>
+                            </li>
+                        </ul>
+                    </li>
+                    
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container">
+        <ul class="breadcrumb">
+            <li>
+                <a href="http://answers.unity3d.com/">Home</a> <span class="divider">/</span>
+            </li>
+        </ul>
+</div>
+
+
+    <section id="middle">
+
+        <div class="main">
+
+            <div class="main-inner">
+
+                <div class="container">
+                    <div class="row">
+                                <div class="span8 mainContent">
+
+                                        
+
+
+
+
+<script>
+
+
+    var jsonTopicSearch = '/search/topics.json';
+
+    var retagUrl = '/commands/341714/editQuestionTopics.json';
+
+
+    function submit_retag() {
+        $.post(retagUrl, $("#topics_retag_container").serializeArray(), function (data) {
+            document.location.reload();
+        });
+    }
+    function setup_retag() {
+        $("#topics_retag_container").css("display", "inline");
+//        $("#topics_retag_container").show();
+
+        $("#id_tags_container").hide();
+        $("#topics_retag").select2({
+            placeholder: 'Enter topics...',
+            minimumInputLength: 1,
+            width: "250px",
+            ajax: {
+                url: jsonTopicSearch,
+                dataType: 'json',
+                data: function (term, page) {
+                    return {
+                        q: term
+                    };
+                },
+                results: function (data, page) {
+                    for (var i = 0; i < data.topics.length; i++) {
+                        data.topics[i].text = data.topics[i].name;
+                        data.topics[i].id = data.topics[i].name;
+                    }
+                    return {results: data.topics};
+                }
+            },
+            tokenSeparators: [","],
+            tags: true,
+            createSearchChoice: function (term) {
+                return {id: term, text: term};
+            },
+            formatResult: function (item, container, query, escapeMarkup){
+                return escapeMarkup(item.text);
+            },
+            formatSelection: function(item,container, escapeMarkup) {
+                return escapeMarkup(item.text);
+            },
+            initSelection: function (element, callback) {
+                var data = [];
+                $(element.val().split(",")).each(function () {
+                    data.push({id: this, text: this});
+                });
+                callback(data);
+            }
+        });
+
+
+    }
+    $(document).ready(function () {
+        $("#id_do_retag").click(function () {
+            setup_retag();
+            return false;
+        });
+
+        $("#topics_retag_cancel").click(function () {
+
+            $("#topics_retag_container").hide();
+            $("#id_tags_container").show();
+        });
+    });
+</script>
+
+<div class="widget widget-nopad smallmargin" xmlns="http://www.w3.org/1999/html">
+    <div class="widget-content">
+
+
+        <div id="question-container-341714" class="post-container question-container" nodeid="341714">
+            <div id="question-341714" class="question post">
+
+<style type="text/css">
+    .question-body, .node-body {
+        min-height: 50px;
+    }
+
+    .answer-body, .reply-body {
+        min-height: 115px;
+    }
+</style>
+
+
+<div class="post-gravatar question-gravatar" nodeid="341714">
+<a href="http://answers.unity3d.com/users/24656/zico-mahilary.html" style="display: inline-block; max-width: 48px;" rel="user" nodeid="24656" data-hasqtip="0"> <img class="gravatar " width="48" src="./Setting the parent of a transform which resides in a prefab is disabled to prevent data corruption. WHY___ - Unity Answers_files/db9c647d822664a5aa731539882b8f0c" id="" alt="avatar image" title="zico_mahilary">
+</a>    <div class="vote-widget">
+        <a id="vote-up-button-341714" class="vote-up votes" href="http://answers.unity3d.com/questions/341714/setting-the-parent-of-a-transform-which-resides-in.html#" command="voteUp" title="Click to up vote"><i class="icon-chevron-up icon-2x"></i></a>
+        <span id="post-341714-score-wrapper" class="post-score-wrapper count votes positive" style="cursor:default">
+            <span id="post-341714-score" class="score positive">2</span>
+        </span>
+        <a id="vote-down-button-341714" class="vote-down votes" href="http://answers.unity3d.com/questions/341714/setting-the-parent-of-a-transform-which-resides-in.html#" command="voteDown" title="Click to down vote"><i class="icon-chevron-down icon-2x"></i></a>
+            <a id="favorite-mark-341714" class="ajax-command action-favorite ajax-command favorite-mark " href="http://answers.unity3d.com/questions/341714/setting-the-parent-of-a-transform-which-resides-in.html#" command="markFavorite" title="Mark this question as favorite">
+                <i class="icon-star-empty"></i>
+            </a>
+    </div>
+</div>
+            <div class="muted author-info">
+            <strong>Question</strong> by <a href="http://answers.unity3d.com/users/24656/zico-mahilary.html" rel="user" nodeid="24656" data-hasqtip="1">zico_mahilary</a>                
+ ·
+            Nov 02, 2012 at 07:32 AM ·
+                <span class="tags" id="id_tags_container">
+<a href="http://answers.unity3d.com/topics/transform.html" class="tag" rel="topic" nodeid="238" data-hasqtip="41">transform</a><a href="http://answers.unity3d.com/topics/parent.html" class="tag" rel="topic" nodeid="343" data-hasqtip="42">parent</a><a href="http://answers.unity3d.com/topics/child.html" class="tag" rel="topic" nodeid="480" data-hasqtip="43">child</a>                </span>
+            </div>
+                <h1 class="question-title">Setting the parent of a transform which resides in a prefab is disabled to prevent data corruption. WHY???</h1>
+
+                <div class="question-body">
+                <p>im using this script to instantiate a game object.
+and im trying to make it a child of another game object named: level</p>
+<pre class="prettyprint linenums"><ol class="linenums"><li class="L0"><code><span class="pln"> </span><span class="kwd">var</span><span class="pln"> brick </span><span class="pun">:</span><span class="pln"> </span><span class="typ">Transform</span><span class="pun">;</span></code></li><li class="L1"><code><span class="pln"> </span><span class="kwd">function</span><span class="pln"> </span><span class="typ">Start</span><span class="pln"> </span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span></code></li><li class="L2"><code><span class="pln">                 </span><span class="typ">Instantiate</span><span class="pun">(</span><span class="pln">brick</span><span class="pun">,</span><span class="pln"> </span><span class="typ">Vector3</span><span class="pln"> </span><span class="pun">(</span><span class="lit">0</span><span class="pun">,</span><span class="pln"> </span><span class="lit">0</span><span class="pun">,</span><span class="pln"> </span><span class="lit">10</span><span class="pun">),</span><span class="pln"> </span><span class="typ">Quaternion</span><span class="pun">.</span><span class="pln">identity</span><span class="pun">);</span></code></li><li class="L3"><code><span class="pln">                 brick</span><span class="pun">.</span><span class="pln">parent </span><span class="pun">=</span><span class="pln"> transform</span><span class="pun">;</span></code></li><li class="L4"><code><span class="pln">                 </span><span class="pun">}</span></code></li><li class="L5"><code></code></li></ol></pre>
+<p>I have attached the script to the game object : level.</p>
+<p>but im getting this error...
+"Setting the parent of a transform which resides in a prefab is disabled to prevent data corruption"</p>
+<p>how to solve this?
+</p>
+
+                </div>
+
+            <div class="comment-tools hidden"><span class="add-comment-link "><a href="http://answers.unity3d.com/questions/341714/setting-the-parent-of-a-transform-which-resides-in.html#">Comment</a></span></div>
+<div class="control-bar" nodeid="341714">
+    <div class="post-controls" nodeid="341714">
+            <a id="reply-link-341714" href="http://answers.unity3d.com/questions/341714/setting-the-parent-of-a-transform-which-resides-in.html#">Add comment</a>
+
+            <script type="text/javascript">
+                $(function() {
+                    $('#reply-link-341714').click(function() {
+                        commandUtils.showMessage('', "You must log in to post comments.");
+                        return false;
+                    });
+                });
+            </script>
+
+    </div>
+</div>
+<div id="comment-341714-form-container" class="clearfix well comment-form-container">
+    <form id="comment-341714-form" action="http://answers.unity3d.com/comments/341714/add.json" method="POST" accept-charset="utf-8"><input type="hidden" name="TH_CSRF" value="a-5281313650784184126">
+        <div class="comment-form-widgets-container">
+        
+            <div class="comment-form-textarea-container">
+                <div class="wmd-button-bar"><ul class="wmd-button-row"><li class="wmd-button wmd-bold-button" title="Strong &lt;strong&gt; Ctrl+B" style="background-position: 0px 0px;"></li><li class="wmd-button wmd-italic-button" title="Emphasis &lt;em&gt; Ctrl+I" style="background-position: -20px 0px;"></li><li class="wmd-spacer wmd-spacer1"></li><li class="wmd-button wmd-link-button" title="Hyperlink &lt;a&gt; Ctrl+L" style="background-position: -40px 0px;"></li><li class="wmd-button wmd-quote-button" title="Blockquote &lt;blockquote&gt; Ctrl+Q" style="background-position: -60px 0px;"></li><li class="wmd-button wmd-code-button" title="Code Sample &lt;pre&gt;&lt;code&gt; Ctrl+K" style="background-position: -80px 0px;"></li><li class="wmd-button wmd-image-button" title="Image &lt;img&gt; Ctrl+G" style="background-position: -120px 0px;"></li><li class="wmd-button wmd-attachment-button" title="Attachment Ctrl+U" style="background-position: -100px 0px;"></li><li class="wmd-spacer wmd-spacer2"></li><li class="wmd-button wmd-olist-button" title="Numbered List &lt;ol&gt; Ctrl+O" style="background-position: -140px 0px;"></li><li class="wmd-button wmd-ulist-button" title="Bulleted List &lt;ul&gt; Ctrl+U" style="background-position: -160px 0px;"></li><li class="wmd-button wmd-heading-button" title="Heading &lt;h1&gt;/&lt;h2&gt; Ctrl+H" style="background-position: -180px 0px;"></li><li class="wmd-button wmd-hr-button" title="Horizontal Rule &lt;hr&gt; Ctrl+R" style="background-position: -200px 0px;"></li><li class="wmd-spacer wmd-spacer3"></li><li class="wmd-button wmd-undo-button" title="Undo - Ctrl+Z" style="background-position: -220px -20px;"></li><li class="wmd-button wmd-redo-button" title="Redo - Ctrl+Shift+Z" style="background-position: -240px -20px;"></li><li class="wmd-button wmd-help-button" style="background-position: -260px 0px;"><a href="http://answers.unity3d.com/static/markdown/help.html" target="_blank" title="Markdown Help"></a></li></ul></div><textarea name="body" class="commentBox" data-type="comment"></textarea><div class="comments-form-attachments"><div></div><div></div></div>
+            </div>
+            <div class="comment-form-buttons">
+                <span id="comment-{{ post.id }}-chars-left" class="comment-chars-left">
+                    <span class="comments-char-left-count warn">10
+                        |3000</span>
+                    <span class="comments-chars-togo-msg">characters needed</span>
+                    <span class="comments-chars-left-msg">characters left</span>
+                    <span class="comments-chars-exceeded-msg">characters exceeded</span>
+                </span>
+
+                <div class="comment-form-buttons-container">
+                    <input type="submit" class="btn btn-primary comment-submit" value="Submit">
+                    <input type="submit" class="btn comment-cancel" value="Cancel">
+                </div>
+                
+            </div>
+            <div style="clear:both;"></div>
+        </div>
+        <input type="hidden" name="parent" value="341714">
+        <input type="hidden" name="visibility" value="full">
+
+        <div style="display: none" class="comment-form-extra-inputs"></div>
+    </form>
+</div>
+	                <div class="comments-container" id="comments-container-341714" nodeid="341714">
+	                </div>
+                <script type="text/javascript">$(function () {
+                    setupComments($('#question-container-341714'), true, false, croles, "full", false)
+                });</script>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        var $question = $("#question-container-341714");
+        var $replyLink = $question.find(".reply-link");
+        $replyLink.click(function (e) {
+            e.preventDefault();
+            $question.find(".add-comment-link").click();
+        });
+
+        $(".ajax-command").click(function () {
+            $('.dropdown-toggle').dropdown('toggle');
+        });
+    })
+</script>
+
+<div class="widget widget-nopad answer-list">
+    <div class="widget-header">
+        <h3><strong>3</strong> Replies</h3> · <a href="http://answers.unity3d.com/questions/341714/setting-the-parent-of-a-transform-which-resides-in.html#answer-form">Add your reply</a>
+        <ul class="nav nav-pills sort">
+            <li class="sort-label">Sort:&nbsp;</li>
+            <li title="Votes" class="active"><a href="http://answers.unity3d.com/questions/341714/setting-the-parent-of-a-transform-which-resides-in.html?sort=votes"><i class="icon-thumbs-up"></i></a></li>
+            <li title="Created"><a href="http://answers.unity3d.com/questions/341714/setting-the-parent-of-a-transform-which-resides-in.html?sort=newest"><i class="icon-time"></i></a></li>
+            <li title="Oldest"><a href="http://answers.unity3d.com/questions/341714/setting-the-parent-of-a-transform-which-resides-in.html?sort=oldest"><i class="icon-history"></i></a></li>
+        </ul>
+    </div>
+
+<div class="widget-content">
+                    <div id="answer-container-341719" class="post-container answer-container clearfix  accepted-answer" "="" nodeid="341719">
+                <div id="answer-341719" class="answer clearfix post">
+
+
+<div class="post-gravatar answer-gravatar" nodeid="341719">
+<a href="http://answers.unity3d.com/users/46079/shrandis.html" style="display: inline-block; max-width: 48px;" rel="user" nodeid="46079" data-hasqtip="2"> <img class="gravatar " width="48" src="./Setting the parent of a transform which resides in a prefab is disabled to prevent data corruption. WHY___ - Unity Answers_files/view.html" id="" alt="avatar image" title="Shrandis">
+</a>    <div class="vote-widget">
+        <a id="vote-up-button-341719" class="vote-up votes" href="http://answers.unity3d.com/questions/341714/setting-the-parent-of-a-transform-which-resides-in.html#" command="voteUp" title="Click to up vote"><i class="icon-chevron-up icon-2x"></i></a>
+        <span id="post-341719-score-wrapper" class="post-score-wrapper count votes positive" style="cursor:default">
+            <span id="post-341719-score" class="score positive">20</span>
+        </span>
+        <a id="vote-down-button-341719" class="vote-down votes" href="http://answers.unity3d.com/questions/341714/setting-the-parent-of-a-transform-which-resides-in.html#" command="voteDown" title="Click to down vote"><i class="icon-chevron-down icon-2x"></i></a>
+    </div>
+</div>                    <div class="labels">
+                        <span class="label label-success">Best Answer</span>
+                        
+                    </div>
+                    <p class="muted author-info">
+                        <strong>Answer</strong> by <a href="http://answers.unity3d.com/users/46079/shrandis.html" rel="user" nodeid="46079" data-hasqtip="3">Shrandis</a>                        
+ <span class="post-info muted">·
+Nov 02, 2012 at 07:51 AM                    </span></p>
+
+                    <div class="answer-body">
+                    <pre class="prettyprint linenums"><ol class="linenums"><li class="L0"><code><span class="pln"> </span><span class="typ">Instantiate</span><span class="pun">(</span><span class="pln">brick</span><span class="pun">,</span><span class="pln"> </span><span class="typ">Vector3</span><span class="pln"> </span><span class="pun">(</span><span class="lit">0</span><span class="pun">,</span><span class="pln"> </span><span class="lit">0</span><span class="pun">,</span><span class="pln"> </span><span class="lit">10</span><span class="pun">),</span><span class="pln"> </span><span class="typ">Quaternion</span><span class="pun">.</span><span class="pln">identity</span><span class="pun">);</span></code></li><li class="L1"><code><span class="pln"> brick</span><span class="pun">.</span><span class="pln">parent </span><span class="pun">=</span><span class="pln"> transform</span><span class="pun">;</span></code></li><li class="L2"><code></code></li></ol></pre>
+<p>You are trying to set the parent of your brick PREFAB, not the actual brick you instantiated.</p>
+<pre class="prettyprint linenums"><ol class="linenums"><li class="L0"><code><span class="pln"> </span><span class="typ">GameObject</span><span class="pln"> myBrick </span><span class="pun">=</span><span class="pln"> </span><span class="typ">Instantiate</span><span class="pun">(</span><span class="pln">brick</span><span class="pun">,</span><span class="pln"> </span><span class="typ">Vector3</span><span class="pln"> </span><span class="pun">(</span><span class="lit">0</span><span class="pun">,</span><span class="pln"> </span><span class="lit">0</span><span class="pun">,</span><span class="pln"> </span><span class="lit">10</span><span class="pun">),</span><span class="pln"> </span><span class="typ">Quaternion</span><span class="pun">.</span><span class="pln">identity</span><span class="pun">)</span><span class="pln"> </span><span class="kwd">as</span><span class="pln"> </span><span class="typ">GameObject</span><span class="pun">;</span></code></li><li class="L1"><code><span class="pln"> myBrick</span><span class="pun">.</span><span class="pln">transform</span><span class="pun">.</span><span class="pln">parent </span><span class="pun">=</span><span class="pln"> transform</span><span class="pun">;</span></code></li><li class="L2"><code></code></li></ol></pre>
+<p>Again, "brick" is your prefab, myBrick is the brick you instantiate here so you need to set it as child, NOT the prefab.
+</p>
+
+                    </div>
+
+                    <div class="comment-tools hidden"><span class="add-comment-link "><a href="http://answers.unity3d.com/questions/341714/setting-the-parent-of-a-transform-which-resides-in.html#">Comment</a></span></div>
+<div class="control-bar" nodeid="341719">
+    <div class="post-controls" nodeid="341719">
+            <a id="reply-link-341719" href="http://answers.unity3d.com/questions/341714/setting-the-parent-of-a-transform-which-resides-in.html#">Add comment</a>
+
+            <script type="text/javascript">
+                $(function() {
+                    $('#reply-link-341719').click(function() {
+                        commandUtils.showMessage('', "You must log in to post comments.");
+                        return false;
+                    });
+                });
+            </script>
+        ·
+        <a id="341719-show-comments-container" class="show-comments-container" commentcount="3"><i class="icon-comments"></i> Hide 3</a>
+    ·
+        <a href="http://answers.unity3d.com/questions/341714/setting-the-parent-of-a-transform-which-resides-in.html#" class="ajax-command" command="share" title="Share a link to this answer">Share</a>
+
+    </div>
+</div>
+<div id="comment-341719-form-container" class="clearfix well comment-form-container">
+    <form id="comment-341719-form" action="http://answers.unity3d.com/comments/341719/add.json" method="POST" accept-charset="utf-8"><input type="hidden" name="TH_CSRF" value="a-5281313650784184126">
+        <div class="comment-form-widgets-container">
+        
+            <div class="comment-form-textarea-container">
+                <div class="wmd-button-bar"><ul class="wmd-button-row"><li class="wmd-button wmd-bold-button" title="Strong &lt;strong&gt; Ctrl+B" style="background-position: 0px 0px;"></li><li class="wmd-button wmd-italic-button" title="Emphasis &lt;em&gt; Ctrl+I" style="background-position: -20px 0px;"></li><li class="wmd-spacer wmd-spacer1"></li><li class="wmd-button wmd-link-button" title="Hyperlink &lt;a&gt; Ctrl+L" style="background-position: -40px 0px;"></li><li class="wmd-button wmd-quote-button" title="Blockquote &lt;blockquote&gt; Ctrl+Q" style="background-position: -60px 0px;"></li><li class="wmd-button wmd-code-button" title="Code Sample &lt;pre&gt;&lt;code&gt; Ctrl+K" style="background-position: -80px 0px;"></li><li class="wmd-button wmd-image-button" title="Image &lt;img&gt; Ctrl+G" style="background-position: -120px 0px;"></li><li class="wmd-button wmd-attachment-button" title="Attachment Ctrl+U" style="background-position: -100px 0px;"></li><li class="wmd-spacer wmd-spacer2"></li><li class="wmd-button wmd-olist-button" title="Numbered List &lt;ol&gt; Ctrl+O" style="background-position: -140px 0px;"></li><li class="wmd-button wmd-ulist-button" title="Bulleted List &lt;ul&gt; Ctrl+U" style="background-position: -160px 0px;"></li><li class="wmd-button wmd-heading-button" title="Heading &lt;h1&gt;/&lt;h2&gt; Ctrl+H" style="background-position: -180px 0px;"></li><li class="wmd-button wmd-hr-button" title="Horizontal Rule &lt;hr&gt; Ctrl+R" style="background-position: -200px 0px;"></li><li class="wmd-spacer wmd-spacer3"></li><li class="wmd-button wmd-undo-button" title="Undo - Ctrl+Z" style="background-position: -220px -20px;"></li><li class="wmd-button wmd-redo-button" title="Redo - Ctrl+Shift+Z" style="background-position: -240px -20px;"></li><li class="wmd-button wmd-help-button" style="background-position: -260px 0px;"><a href="http://answers.unity3d.com/static/markdown/help.html" target="_blank" title="Markdown Help"></a></li></ul></div><textarea name="body" class="commentBox" data-type="comment"></textarea><div class="comments-form-attachments"><div></div><div></div></div>
+            </div>
+            <div class="comment-form-buttons">
+                <span id="comment-{{ post.id }}-chars-left" class="comment-chars-left">
+                    <span class="comments-char-left-count warn">10
+                        |3000</span>
+                    <span class="comments-chars-togo-msg">characters needed</span>
+                    <span class="comments-chars-left-msg">characters left</span>
+                    <span class="comments-chars-exceeded-msg">characters exceeded</span>
+                </span>
+
+                <div class="comment-form-buttons-container">
+                    <input type="submit" class="btn btn-primary comment-submit" value="Submit">
+                    <input type="submit" class="btn comment-cancel" value="Cancel">
+                </div>
+                
+            </div>
+            <div style="clear:both;"></div>
+        </div>
+        <input type="hidden" name="parent" value="341719">
+        <input type="hidden" name="visibility" value="full">
+
+        <div style="display: none" class="comment-form-extra-inputs"></div>
+    </form>
+</div>
+                    <div class="comments-container" id="comments-container-341719" nodeid="341719" style="display: block;">
+        <span name="341759"></span>
+        <div class="comment nsc " id="comment-341759" activerev="499618" nodeid="341759" authorid="24656">
+            <div class="comment-content" nodeid="341759">
+                <div class="comment-header" nodeid="341759">
+<a href="http://answers.unity3d.com/users/24656/zico-mahilary.html" style="display: inline-block; max-width: 24px;" rel="user" nodeid="24656" data-hasqtip="4"> <img class="gravatar comment-user-gravatar" width="24" src="./Setting the parent of a transform which resides in a prefab is disabled to prevent data corruption. WHY___ - Unity Answers_files/db9c647d822664a5aa731539882b8f0c(1)" id="" alt="avatar image" title="zico_mahilary">
+</a><a href="http://answers.unity3d.com/users/24656/zico-mahilary.html" class="comment-user userinfo" rel="user" nodeid="24656" data-hasqtip="5">zico_mahilary </a>                    
+                    <span class="comment-age friendly-date" title="2012, Nov 02 at 09:35:50+0000">
+                        ·
+                        <a href="http://answers.unity3d.com/comments/341759/view.html">Nov 02, 2012 at 09:35 AM</a>
+                    </span>
+                    <span id="post-341759-score" class="comment-score">1</span>
+                    <div class="comment-info" id="comment-341759-info">
+
+                        <a id="vote-up-button-341759" command="voteUp" href="http://answers.unity3d.com/questions/341714/setting-the-parent-of-a-transform-which-resides-in.html#" class="make-tooltip vote-up " title="Click to up vote"><i class=" icon-chevron-up"></i></a>
+
+                        <a id="vote-down-button-341759" command="voteDown" href="http://answers.unity3d.com/questions/341714/setting-the-parent-of-a-transform-which-resides-in.html#" class="make-tooltip vote-down " title="Click to down vote"><i class=" icon-chevron-down"></i></a>
+
+
+
+                        <a href="http://answers.unity3d.com/questions/341714/setting-the-parent-of-a-transform-which-resides-in.html#" class="ajax-command" command="share" title="Share a link to this answer">Share</a>
+
+
+
+                    </div>
+                </div>
+                <div id="comment-341759-left" class="comment-left">
+                    <div id="post-341759-score" class="comment-score"></div>
+                </div>
+                <div class="comment-text"><p>awesome!!! thanks a lot.. cheers!
+</p>
+</div>
+
+            </div>
+
+
+        </div>
+        <span name="341793"></span>
+        <div class="comment nsc " id="comment-341793" activerev="499661" nodeid="341793" authorid="6612">
+            <div class="comment-content" nodeid="341793">
+                <div class="comment-header" nodeid="341793">
+<a href="http://answers.unity3d.com/users/6612/bunny83.html" style="display: inline-block; max-width: 24px;" rel="user" nodeid="6612" data-hasqtip="6"> <img class="gravatar comment-user-gravatar" width="24" src="./Setting the parent of a transform which resides in a prefab is disabled to prevent data corruption. WHY___ - Unity Answers_files/90ae2ed3429ef8ab4087fb7105407bd6" id="" alt="avatar image" title="Bunny83">
+</a><a href="http://answers.unity3d.com/users/6612/bunny83.html" class="comment-user userinfo" rel="user" nodeid="6612" data-hasqtip="7">Bunny83 </a>                    
+                    <span class="comment-age friendly-date" title="2012, Nov 02 at 10:20:38+0000">
+                        ·
+                        <a href="http://answers.unity3d.com/comments/341793/view.html">Nov 02, 2012 at 10:20 AM</a>
+                    </span>
+                    <span id="post-341793-score" class="comment-score">1</span>
+                    <div class="comment-info" id="comment-341793-info">
+
+                        <a id="vote-up-button-341793" command="voteUp" href="http://answers.unity3d.com/questions/341714/setting-the-parent-of-a-transform-which-resides-in.html#" class="make-tooltip vote-up " title="Click to up vote"><i class=" icon-chevron-up"></i></a>
+
+                        <a id="vote-down-button-341793" command="voteDown" href="http://answers.unity3d.com/questions/341714/setting-the-parent-of-a-transform-which-resides-in.html#" class="make-tooltip vote-down " title="Click to down vote"><i class=" icon-chevron-down"></i></a>
+
+
+
+                        <a href="http://answers.unity3d.com/questions/341714/setting-the-parent-of-a-transform-which-resides-in.html#" class="ajax-command" command="share" title="Share a link to this answer">Share</a>
+
+
+
+                    </div>
+                </div>
+                <div id="comment-341793-left" class="comment-left">
+                    <div id="post-341793-score" class="comment-score"></div>
+                </div>
+                <div class="comment-text"><p>The code in the question seems to be UnityScript. Your answer is (kind of C#). It's ok to post a C# solution, but it should be correct ;) "<strong>new</strong> Vector3(0, 0, 10)". Also the prefab was a Transform reference so the returned reference will also reference the Transform component of the created object. When you "as-cast" it to GameObject (which doesn't work) it will be null.</p>
+<p>So either do this</p>
+<pre><code> Transform brickPrefab;
+ //[...]
+ Transform myBrick = Instantiate(brickPrefab, new Vector3 (0, 0, 10), Quaternion.identity) as Transform;
+ myBrick.parent = transform;
+
+</code></pre>
+<p>or</p>
+<pre><code> Transform myBrick = (Transform)Instantiate(brickPrefab, new Vector3 (0, 0, 10), Quaternion.identity);
+ myBrick.parent = transform;
+
+</code></pre>
+<p>in C#.
+</p>
+</div>
+
+            </div>
+
+
+        </div>
+        <span name="1355925"></span>
+        <div class="comment nsc " id="comment-1355925" activerev="1837359" nodeid="1355925" authorid="679206">
+            <div class="comment-content" nodeid="1355925">
+                <div class="comment-header" nodeid="1355925">
+<a href="http://answers.unity3d.com/users/679206/nalincah.html" style="display: inline-block; max-width: 24px;" rel="user" nodeid="679206" data-hasqtip="8"> <img class="gravatar comment-user-gravatar" width="24" src="./Setting the parent of a transform which resides in a prefab is disabled to prevent data corruption. WHY___ - Unity Answers_files/3c64def94e788e140e004c4b1c07721d" id="" alt="avatar image" title="Nalincah">
+</a><a href="http://answers.unity3d.com/users/679206/nalincah.html" class="comment-user userinfo" rel="user" nodeid="679206" data-hasqtip="9">Nalincah </a>                    
+                    <span class="comment-age friendly-date" title="2017, May 20 at 20:19:50+0000">
+                        ·
+                        <a href="http://answers.unity3d.com/comments/1355925/view.html">May 20 at 08:19 PM</a>
+                    </span>
+                    <span id="post-1355925-score" class="comment-score">0</span>
+                    <div class="comment-info" id="comment-1355925-info">
+
+                        <a id="vote-up-button-1355925" command="voteUp" href="http://answers.unity3d.com/questions/341714/setting-the-parent-of-a-transform-which-resides-in.html#" class="make-tooltip vote-up " title="Click to up vote"><i class=" icon-chevron-up"></i></a>
+
+                        <a id="vote-down-button-1355925" command="voteDown" href="http://answers.unity3d.com/questions/341714/setting-the-parent-of-a-transform-which-resides-in.html#" class="make-tooltip vote-down " title="Click to down vote"><i class=" icon-chevron-down"></i></a>
+
+
+
+                        <a href="http://answers.unity3d.com/questions/341714/setting-the-parent-of-a-transform-which-resides-in.html#" class="ajax-command" command="share" title="Share a link to this answer">Share</a>
+
+
+
+                    </div>
+                </div>
+                <div id="comment-1355925-left" class="comment-left">
+                    <div id="post-1355925-score" class="comment-score"></div>
+                </div>
+                <div class="comment-text"><p>It doesn't work in both directions. </p> 
+<pre><code> GameObject foo = Instantiate(extra1, Vector3.zero, Quaternion.identity); 
+ foo.transform.parent = otherPrefabGameObject;
+
+</code></pre> 
+<p>You can neither set the parent of a prefab, nor set a prefab as a level. Both actions triggers the message "Setting the parent of a transform which resides in a prefab is disabled to prevent data corruption.". The Reason: A prefab is a file on your disk, and should never be modified by your Script </p></div>
+
+            </div>
+
+
+        </div>
+                    </div>
+                    <script type="text/javascript">
+                        $(function () {
+                            setupComments($('#answer-container-341719'), true, false, croles, "full", true)
+                        });
+                        $(document).ready(function () {
+                            var $answer = $("#answer-container-341719");
+                            var $replyLink = $answer.find(".reply-link");
+                            $replyLink.click(function (e) {
+                                e.preventDefault();
+                                $answer.find(".add-comment-link").click();
+                            });
+                        });
+                    </script>
+                </div>
+            </div>
+                    <div id="answer-container-388774" class="post-container answer-container clearfix 
+                " nodeid="388774">
+                <div id="answer-388774" class="answer clearfix post">
+
+
+<div class="post-gravatar answer-gravatar" nodeid="388774">
+<a href="http://answers.unity3d.com/users/70666/cinnax.html" style="display: inline-block; max-width: 48px;" rel="user" nodeid="70666" data-hasqtip="10"> <img class="gravatar " width="48" src="./Setting the parent of a transform which resides in a prefab is disabled to prevent data corruption. WHY___ - Unity Answers_files/d2c9083cc51afa2e84f65c1758eb9892" id="" alt="avatar image" title="Cinnax">
+</a>    <div class="vote-widget">
+        <a id="vote-up-button-388774" class="vote-up votes" href="http://answers.unity3d.com/questions/341714/setting-the-parent-of-a-transform-which-resides-in.html#" command="voteUp" title="Click to up vote"><i class="icon-chevron-up icon-2x"></i></a>
+        <span id="post-388774-score-wrapper" class="post-score-wrapper count votes positive" style="cursor:default">
+            <span id="post-388774-score" class="score positive">4</span>
+        </span>
+        <a id="vote-down-button-388774" class="vote-down votes" href="http://answers.unity3d.com/questions/341714/setting-the-parent-of-a-transform-which-resides-in.html#" command="voteDown" title="Click to down vote"><i class="icon-chevron-down icon-2x"></i></a>
+    </div>
+</div>                    <div class="labels">
+                        
+                        
+                    </div>
+                    <p class="muted author-info">
+                        <strong>Answer</strong> by <a href="http://answers.unity3d.com/users/70666/cinnax.html" rel="user" nodeid="70666" data-hasqtip="11">Cinnax</a>                        
+ <span class="post-info muted">·
+Jan 27, 2013 at 04:11 PM                    </span></p>
+
+                    <div class="answer-body">
+                    <p>I know this is an older post, but the error "Setting the parent of a transform which resides in a prefab is disabled to prevent data corruption" indicates that you are attempting to parent a prefab. You cannot do so. When you instantiate an object from a prefab, you need to refer to the actual GameObject that was instantiated, not the prefab which the GameObject is cloned.</p> 
+<p><code>private GameObject objectPrefab; private GameObject prefabInstantiation; prefabInstantiation = Instantiate(objectPrefab, position, rotation) as GameObject; prefabInstantiation.transform.parent = </code></p> 
+<p>As you can see, I am not referring to the actual prefab, but the object which was instantiated. Then I am setting the instantiated objects parent as some other object. </p>
+                    </div>
+
+                    <div class="comment-tools hidden"><span class="add-comment-link "><a href="http://answers.unity3d.com/questions/341714/setting-the-parent-of-a-transform-which-resides-in.html#">Comment</a></span></div>
+<div class="control-bar" nodeid="388774">
+    <div class="post-controls" nodeid="388774">
+            <a id="reply-link-388774" href="http://answers.unity3d.com/questions/341714/setting-the-parent-of-a-transform-which-resides-in.html#">Add comment</a>
+
+            <script type="text/javascript">
+                $(function() {
+                    $('#reply-link-388774').click(function() {
+                        commandUtils.showMessage('', "You must log in to post comments.");
+                        return false;
+                    });
+                });
+            </script>
+    ·
+        <a href="http://answers.unity3d.com/questions/341714/setting-the-parent-of-a-transform-which-resides-in.html#" class="ajax-command" command="share" title="Share a link to this answer">Share</a>
+
+    </div>
+</div>
+<div id="comment-388774-form-container" class="clearfix well comment-form-container">
+    <form id="comment-388774-form" action="http://answers.unity3d.com/comments/388774/add.json" method="POST" accept-charset="utf-8"><input type="hidden" name="TH_CSRF" value="a-5281313650784184126">
+        <div class="comment-form-widgets-container">
+        
+            <div class="comment-form-textarea-container">
+                <div class="wmd-button-bar"><ul class="wmd-button-row"><li class="wmd-button wmd-bold-button" title="Strong &lt;strong&gt; Ctrl+B" style="background-position: 0px 0px;"></li><li class="wmd-button wmd-italic-button" title="Emphasis &lt;em&gt; Ctrl+I" style="background-position: -20px 0px;"></li><li class="wmd-spacer wmd-spacer1"></li><li class="wmd-button wmd-link-button" title="Hyperlink &lt;a&gt; Ctrl+L" style="background-position: -40px 0px;"></li><li class="wmd-button wmd-quote-button" title="Blockquote &lt;blockquote&gt; Ctrl+Q" style="background-position: -60px 0px;"></li><li class="wmd-button wmd-code-button" title="Code Sample &lt;pre&gt;&lt;code&gt; Ctrl+K" style="background-position: -80px 0px;"></li><li class="wmd-button wmd-image-button" title="Image &lt;img&gt; Ctrl+G" style="background-position: -120px 0px;"></li><li class="wmd-button wmd-attachment-button" title="Attachment Ctrl+U" style="background-position: -100px 0px;"></li><li class="wmd-spacer wmd-spacer2"></li><li class="wmd-button wmd-olist-button" title="Numbered List &lt;ol&gt; Ctrl+O" style="background-position: -140px 0px;"></li><li class="wmd-button wmd-ulist-button" title="Bulleted List &lt;ul&gt; Ctrl+U" style="background-position: -160px 0px;"></li><li class="wmd-button wmd-heading-button" title="Heading &lt;h1&gt;/&lt;h2&gt; Ctrl+H" style="background-position: -180px 0px;"></li><li class="wmd-button wmd-hr-button" title="Horizontal Rule &lt;hr&gt; Ctrl+R" style="background-position: -200px 0px;"></li><li class="wmd-spacer wmd-spacer3"></li><li class="wmd-button wmd-undo-button" title="Undo - Ctrl+Z" style="background-position: -220px -20px;"></li><li class="wmd-button wmd-redo-button" title="Redo - Ctrl+Shift+Z" style="background-position: -240px -20px;"></li><li class="wmd-button wmd-help-button" style="background-position: -260px 0px;"><a href="http://answers.unity3d.com/static/markdown/help.html" target="_blank" title="Markdown Help"></a></li></ul></div><textarea name="body" class="commentBox" data-type="comment"></textarea><div class="comments-form-attachments"><div></div><div></div></div>
+            </div>
+            <div class="comment-form-buttons">
+                <span id="comment-{{ post.id }}-chars-left" class="comment-chars-left">
+                    <span class="comments-char-left-count warn">10
+                        |3000</span>
+                    <span class="comments-chars-togo-msg">characters needed</span>
+                    <span class="comments-chars-left-msg">characters left</span>
+                    <span class="comments-chars-exceeded-msg">characters exceeded</span>
+                </span>
+
+                <div class="comment-form-buttons-container">
+                    <input type="submit" class="btn btn-primary comment-submit" value="Submit">
+                    <input type="submit" class="btn comment-cancel" value="Cancel">
+                </div>
+                
+            </div>
+            <div style="clear:both;"></div>
+        </div>
+        <input type="hidden" name="parent" value="388774">
+        <input type="hidden" name="visibility" value="full">
+
+        <div style="display: none" class="comment-form-extra-inputs"></div>
+    </form>
+</div>
+                    <div class="comments-container" id="comments-container-388774" nodeid="388774" style="display: block;">
+                    </div>
+                    <script type="text/javascript">
+                        $(function () {
+                            setupComments($('#answer-container-388774'), true, false, croles, "full", true)
+                        });
+                        $(document).ready(function () {
+                            var $answer = $("#answer-container-388774");
+                            var $replyLink = $answer.find(".reply-link");
+                            $replyLink.click(function (e) {
+                                e.preventDefault();
+                                $answer.find(".add-comment-link").click();
+                            });
+                        });
+                    </script>
+                </div>
+            </div>
+                    <div id="answer-container-707328" class="post-container answer-container clearfix 
+                " nodeid="707328">
+                <div id="answer-707328" class="answer clearfix post">
+
+
+<div class="post-gravatar answer-gravatar" nodeid="707328">
+<a href="http://answers.unity3d.com/users/44417/lone-coder.html" style="display: inline-block; max-width: 48px;" rel="user" nodeid="44417" data-hasqtip="12"> <img class="gravatar " width="48" src="./Setting the parent of a transform which resides in a prefab is disabled to prevent data corruption. WHY___ - Unity Answers_files/f55330b6dda706e76732866182751ce0" id="" alt="avatar image" title="Lone-Coder">
+</a>    <div class="vote-widget">
+        <a id="vote-up-button-707328" class="vote-up votes" href="http://answers.unity3d.com/questions/341714/setting-the-parent-of-a-transform-which-resides-in.html#" command="voteUp" title="Click to up vote"><i class="icon-chevron-up icon-2x"></i></a>
+        <span id="post-707328-score-wrapper" class="post-score-wrapper count votes positive" style="cursor:default">
+            <span id="post-707328-score" class="score positive">2</span>
+        </span>
+        <a id="vote-down-button-707328" class="vote-down votes" href="http://answers.unity3d.com/questions/341714/setting-the-parent-of-a-transform-which-resides-in.html#" command="voteDown" title="Click to down vote"><i class="icon-chevron-down icon-2x"></i></a>
+    </div>
+</div>                    <div class="labels">
+                        
+                        
+                    </div>
+                    <p class="muted author-info">
+                        <strong>Answer</strong> by <a href="http://answers.unity3d.com/users/44417/lone-coder.html" rel="user" nodeid="44417" data-hasqtip="13">Lone-Coder</a>                        
+ <span class="post-info muted">·
+May 13, 2014 at 09:58 PM                    </span></p>
+
+                    <div class="answer-body">
+                    <p>This error was happening to me in Unity 4.3.1 for no good reason.</p>
+<p>Restarting Unity made the problem go away.
+</p>
+
+                    </div>
+
+                    <div class="comment-tools hidden"><span class="add-comment-link "><a href="http://answers.unity3d.com/questions/341714/setting-the-parent-of-a-transform-which-resides-in.html#">Comment</a></span></div>
+<div class="control-bar" nodeid="707328">
+    <div class="post-controls" nodeid="707328">
+            <a id="reply-link-707328" href="http://answers.unity3d.com/questions/341714/setting-the-parent-of-a-transform-which-resides-in.html#">Add comment</a>
+
+            <script type="text/javascript">
+                $(function() {
+                    $('#reply-link-707328').click(function() {
+                        commandUtils.showMessage('', "You must log in to post comments.");
+                        return false;
+                    });
+                });
+            </script>
+        ·
+        <a id="707328-show-comments-container" class="show-comments-container" commentcount="6"><i class="icon-comments"></i> Hide 6</a>
+    ·
+        <a href="http://answers.unity3d.com/questions/341714/setting-the-parent-of-a-transform-which-resides-in.html#" class="ajax-command" command="share" title="Share a link to this answer">Share</a>
+
+    </div>
+</div>
+<div id="comment-707328-form-container" class="clearfix well comment-form-container">
+    <form id="comment-707328-form" action="http://answers.unity3d.com/comments/707328/add.json" method="POST" accept-charset="utf-8"><input type="hidden" name="TH_CSRF" value="a-5281313650784184126">
+        <div class="comment-form-widgets-container">
+        
+            <div class="comment-form-textarea-container">
+                <div class="wmd-button-bar"><ul class="wmd-button-row"><li class="wmd-button wmd-bold-button" title="Strong &lt;strong&gt; Ctrl+B" style="background-position: 0px 0px;"></li><li class="wmd-button wmd-italic-button" title="Emphasis &lt;em&gt; Ctrl+I" style="background-position: -20px 0px;"></li><li class="wmd-spacer wmd-spacer1"></li><li class="wmd-button wmd-link-button" title="Hyperlink &lt;a&gt; Ctrl+L" style="background-position: -40px 0px;"></li><li class="wmd-button wmd-quote-button" title="Blockquote &lt;blockquote&gt; Ctrl+Q" style="background-position: -60px 0px;"></li><li class="wmd-button wmd-code-button" title="Code Sample &lt;pre&gt;&lt;code&gt; Ctrl+K" style="background-position: -80px 0px;"></li><li class="wmd-button wmd-image-button" title="Image &lt;img&gt; Ctrl+G" style="background-position: -120px 0px;"></li><li class="wmd-button wmd-attachment-button" title="Attachment Ctrl+U" style="background-position: -100px 0px;"></li><li class="wmd-spacer wmd-spacer2"></li><li class="wmd-button wmd-olist-button" title="Numbered List &lt;ol&gt; Ctrl+O" style="background-position: -140px 0px;"></li><li class="wmd-button wmd-ulist-button" title="Bulleted List &lt;ul&gt; Ctrl+U" style="background-position: -160px 0px;"></li><li class="wmd-button wmd-heading-button" title="Heading &lt;h1&gt;/&lt;h2&gt; Ctrl+H" style="background-position: -180px 0px;"></li><li class="wmd-button wmd-hr-button" title="Horizontal Rule &lt;hr&gt; Ctrl+R" style="background-position: -200px 0px;"></li><li class="wmd-spacer wmd-spacer3"></li><li class="wmd-button wmd-undo-button" title="Undo - Ctrl+Z" style="background-position: -220px -20px;"></li><li class="wmd-button wmd-redo-button" title="Redo - Ctrl+Shift+Z" style="background-position: -240px -20px;"></li><li class="wmd-button wmd-help-button" style="background-position: -260px 0px;"><a href="http://answers.unity3d.com/static/markdown/help.html" target="_blank" title="Markdown Help"></a></li></ul></div><textarea name="body" class="commentBox" data-type="comment"></textarea><div class="comments-form-attachments"><div></div><div></div></div>
+            </div>
+            <div class="comment-form-buttons">
+                <span id="comment-{{ post.id }}-chars-left" class="comment-chars-left">
+                    <span class="comments-char-left-count warn">10
+                        |3000</span>
+                    <span class="comments-chars-togo-msg">characters needed</span>
+                    <span class="comments-chars-left-msg">characters left</span>
+                    <span class="comments-chars-exceeded-msg">characters exceeded</span>
+                </span>
+
+                <div class="comment-form-buttons-container">
+                    <input type="submit" class="btn btn-primary comment-submit" value="Submit">
+                    <input type="submit" class="btn comment-cancel" value="Cancel">
+                </div>
+                
+            </div>
+            <div style="clear:both;"></div>
+        </div>
+        <input type="hidden" name="parent" value="707328">
+        <input type="hidden" name="visibility" value="full">
+
+        <div style="display: none" class="comment-form-extra-inputs"></div>
+    </form>
+</div>
+                    <div class="comments-container" id="comments-container-707328" nodeid="707328" style="display: block;">
+        <span name="955143"></span>
+        <div class="comment nsc " id="comment-955143" activerev="1317089" nodeid="955143" authorid="595468">
+            <div class="comment-content" nodeid="955143">
+                <div class="comment-header" nodeid="955143">
+<a href="http://answers.unity3d.com/users/595468/1d.html" style="display: inline-block; max-width: 24px;" rel="user" nodeid="595468" data-hasqtip="14"> <img class="gravatar comment-user-gravatar" width="24" src="./Setting the parent of a transform which resides in a prefab is disabled to prevent data corruption. WHY___ - Unity Answers_files/4d6da0e6fd9115e0559444c5a188acb6" id="" alt="avatar image" title="1d">
+</a><a href="http://answers.unity3d.com/users/595468/1d.html" class="comment-user userinfo" rel="user" nodeid="595468" data-hasqtip="15">1d </a>                    
+                    <span class="comment-age friendly-date" title="2015, Apr 26 at 21:01:14+0000">
+                        ·
+                        <a href="http://answers.unity3d.com/comments/955143/view.html">Apr 26, 2015 at 09:01 PM</a>
+                    </span>
+                    <span id="post-955143-score" class="comment-score">0</span>
+                    <div class="comment-info" id="comment-955143-info">
+
+                        <a id="vote-up-button-955143" command="voteUp" href="http://answers.unity3d.com/questions/341714/setting-the-parent-of-a-transform-which-resides-in.html#" class="make-tooltip vote-up " title="Click to up vote"><i class=" icon-chevron-up"></i></a>
+
+                        <a id="vote-down-button-955143" command="voteDown" href="http://answers.unity3d.com/questions/341714/setting-the-parent-of-a-transform-which-resides-in.html#" class="make-tooltip vote-down " title="Click to down vote"><i class=" icon-chevron-down"></i></a>
+
+
+
+                        <a href="http://answers.unity3d.com/questions/341714/setting-the-parent-of-a-transform-which-resides-in.html#" class="ajax-command" command="share" title="Share a link to this answer">Share</a>
+
+
+
+                    </div>
+                </div>
+                <div id="comment-955143-left" class="comment-left">
+                    <div id="post-955143-score" class="comment-score"></div>
+                </div>
+                <div class="comment-text"><p>This was the same at me. </p></div>
+
+            </div>
+
+
+        </div>
+        <span name="1091341"></span>
+        <div class="comment nsc " id="comment-1091341" activerev="1491777" nodeid="1091341" authorid="388952">
+            <div class="comment-content" nodeid="1091341">
+                <div class="comment-header" nodeid="1091341">
+<a href="http://answers.unity3d.com/users/388952/tpainton.html" style="display: inline-block; max-width: 24px;" rel="user" nodeid="388952" data-hasqtip="16"> <img class="gravatar comment-user-gravatar" width="24" src="./Setting the parent of a transform which resides in a prefab is disabled to prevent data corruption. WHY___ - Unity Answers_files/dd39dabecd24086f7f0c04179e6555d1" id="" alt="avatar image" title="tpainton">
+</a><a href="http://answers.unity3d.com/users/388952/tpainton.html" class="comment-user userinfo" rel="user" nodeid="388952" data-hasqtip="17">tpainton </a>                    
+                    <span class="comment-age friendly-date" title="2015, Oct 31 at 17:32:14+0000">
+                        ·
+                        <a href="http://answers.unity3d.com/comments/1091341/view.html">Oct 31, 2015 at 05:32 PM</a>
+                    </span>
+                    <span id="post-1091341-score" class="comment-score">-1</span>
+                    <div class="comment-info" id="comment-1091341-info">
+
+                        <a id="vote-up-button-1091341" command="voteUp" href="http://answers.unity3d.com/questions/341714/setting-the-parent-of-a-transform-which-resides-in.html#" class="make-tooltip vote-up " title="Click to up vote"><i class=" icon-chevron-up"></i></a>
+
+                        <a id="vote-down-button-1091341" command="voteDown" href="http://answers.unity3d.com/questions/341714/setting-the-parent-of-a-transform-which-resides-in.html#" class="make-tooltip vote-down " title="Click to down vote"><i class=" icon-chevron-down"></i></a>
+
+
+
+                        <a href="http://answers.unity3d.com/questions/341714/setting-the-parent-of-a-transform-which-resides-in.html#" class="ajax-command" command="share" title="Share a link to this answer">Share</a>
+
+
+
+                    </div>
+                </div>
+                <div id="comment-1091341-left" class="comment-left">
+                    <div id="post-1091341-score" class="comment-score"></div>
+                </div>
+                <div class="comment-text"><p>Yes, I feel there is a bug here. </p> 
+<pre><code> public void DisplayDown (List&lt;HackingTarget&gt; targets, Vector3 origin) {
+ 
+         foreach (HackingTarget target in targets) {
+             GameObject entry = (GameObject)Instantiate (textMesh, origin, Quaternion.identity);
+             // Add the appropriate listener script.  
+             entry.AddComponent&lt;ScanClickLink&gt; ();
+             ScanClickLink clickscript = entry.GetComponent&lt;ScanClickLink&gt; ();
+             clickscript.Target = target;
+             entry.transform.parent = gameObject.transform;  // ERROR!!!
+             entry.transform.localPosition = origin;
+             TextMeshPro tMesh = entry.GetComponent &lt;TextMeshPro&gt; ();
+             tMesh.text = BuildTargetDesc (target);
+             tMesh.ForceMeshUpdate ();
+             float newY = tMesh.mesh.bounds.center.y + tMesh.mesh.bounds.size.y + .2f;
+             Vector3 temp = new Vector3 (0, newY, 0);
+             origin -= temp;
+         }
+     }
+
+</code></pre> 
+<p>The line "entry.transform.parent = gameObject.transform;" throws the error. Clearly entry is NOT the prefab. I have been trying to fix this issue for a week now. Restarting Unity does not fix the problem. </p></div>
+
+            </div>
+
+        <span name="1091385"></span>
+        <div class="comment nsc " id="comment-1091385" activerev="1491836" nodeid="1091385" authorid="6612">
+            <div class="comment-content" nodeid="1091385">
+                <div class="comment-header" nodeid="1091385">
+<a href="http://answers.unity3d.com/users/6612/bunny83.html" style="display: inline-block; max-width: 24px;" rel="user" nodeid="6612" data-hasqtip="18"> <img class="gravatar comment-user-gravatar" width="24" src="./Setting the parent of a transform which resides in a prefab is disabled to prevent data corruption. WHY___ - Unity Answers_files/90ae2ed3429ef8ab4087fb7105407bd6" id="" alt="avatar image" title="Bunny83">
+</a><a href="http://answers.unity3d.com/users/6612/bunny83.html" class="comment-user userinfo" rel="user" nodeid="6612" data-hasqtip="19">Bunny83 </a>                     <span class="comment-parent"><i class="icon-share-alt"></i> tpainton </span>
+                    <span class="comment-age friendly-date" title="2015, Oct 31 at 19:52:27+0000">
+                        ·
+                        <a href="http://answers.unity3d.com/comments/1091385/view.html">Oct 31, 2015 at 07:52 PM</a>
+                    </span>
+                    <span id="post-1091385-score" class="comment-score">0</span>
+                    <div class="comment-info" id="comment-1091385-info">
+
+                        <a id="vote-up-button-1091385" command="voteUp" href="http://answers.unity3d.com/questions/341714/setting-the-parent-of-a-transform-which-resides-in.html#" class="make-tooltip vote-up " title="Click to up vote"><i class=" icon-chevron-up"></i></a>
+
+                        <a id="vote-down-button-1091385" command="voteDown" href="http://answers.unity3d.com/questions/341714/setting-the-parent-of-a-transform-which-resides-in.html#" class="make-tooltip vote-down " title="Click to down vote"><i class=" icon-chevron-down"></i></a>
+
+
+
+                        <a href="http://answers.unity3d.com/questions/341714/setting-the-parent-of-a-transform-which-resides-in.html#" class="ajax-command" command="share" title="Share a link to this answer">Share</a>
+
+
+
+                    </div>
+                </div>
+                <div id="comment-1091385-left" class="comment-left">
+                    <div id="post-1091385-score" class="comment-score"></div>
+                </div>
+                <div class="comment-text"><p>This is not an answer. You should have posted a seperate question. Also are you sure you get the exact same error? Does this happen at runtime?</p>
+<p>On what object is this script attached to and how do you call "DisplayDown"? Maybe you call this method on a prefab so "gameObject.transform" actually references a prefab?</p>
+<p>Again, post a <strong>question</strong> and not an <strong>answer</strong>.
+</p>
+</div>
+
+            </div>
+
+
+        </div>
+        <span name="1091639"></span>
+        <div class="comment nsc " id="comment-1091639" activerev="1492181" nodeid="1091639" authorid="388952">
+            <div class="comment-content" nodeid="1091639">
+                <div class="comment-header" nodeid="1091639">
+<a href="http://answers.unity3d.com/users/388952/tpainton.html" style="display: inline-block; max-width: 24px;" rel="user" nodeid="388952" data-hasqtip="20"> <img class="gravatar comment-user-gravatar" width="24" src="./Setting the parent of a transform which resides in a prefab is disabled to prevent data corruption. WHY___ - Unity Answers_files/dd39dabecd24086f7f0c04179e6555d1" id="" alt="avatar image" title="tpainton">
+</a><a href="http://answers.unity3d.com/users/388952/tpainton.html" class="comment-user userinfo" rel="user" nodeid="388952" data-hasqtip="21">tpainton </a>                     <span class="comment-parent"><i class="icon-share-alt"></i> tpainton </span>
+                    <span class="comment-age friendly-date" title="2015, Nov 01 at 15:23:40+0000">
+                        ·
+                        <a href="http://answers.unity3d.com/comments/1091639/view.html">Nov 01, 2015 at 03:23 PM</a>
+                    </span>
+                    <span id="post-1091639-score" class="comment-score">0</span>
+                    <div class="comment-info" id="comment-1091639-info">
+
+                        <a id="vote-up-button-1091639" command="voteUp" href="http://answers.unity3d.com/questions/341714/setting-the-parent-of-a-transform-which-resides-in.html#" class="make-tooltip vote-up " title="Click to up vote"><i class=" icon-chevron-up"></i></a>
+
+                        <a id="vote-down-button-1091639" command="voteDown" href="http://answers.unity3d.com/questions/341714/setting-the-parent-of-a-transform-which-resides-in.html#" class="make-tooltip vote-down " title="Click to down vote"><i class=" icon-chevron-down"></i></a>
+
+
+
+                        <a href="http://answers.unity3d.com/questions/341714/setting-the-parent-of-a-transform-which-resides-in.html#" class="ajax-command" command="share" title="Share a link to this answer">Share</a>
+
+
+
+                    </div>
+                </div>
+                <div id="comment-1091639-left" class="comment-left">
+                    <div id="post-1091639-score" class="comment-score"></div>
+                </div>
+                <div class="comment-text"><p>Sorry, 10 years of <a rel="nofollow" href="http://stackoverflow.com/">stackoverflow.com</a> moderaters telling me not to repeat questions and "This has already been asked". My problem seems to be the exact same. The question thus far, "restart Unity" isn't an answer. </p> 
+<p>So, from now on, if I See 3 questions that are similar to mine, all unanswered, the appropriate thing to do is post the question again?</p> 
+<p>I'll just do that now. If I don't get a response, I guess I'll be forced to come back here. Again, sorry. Probably didn't deserve a downvote. A simple notification that repetition is preferred would suffice. </p> 
+<p>reposted here <a rel="nofollow" href="http://answers.unity3d.com/questions/1091642/another-setting-the-parent-of-a-transform-which-re.html">http://answers.unity3d.com/questions/1091642/another-setting-the-parent-of-a-transform-which-re.html</a> </p></div>
+
+            </div>
+
+        <span name="1091649"></span>
+        <div class="comment nsc " id="comment-1091649" activerev="1492180" nodeid="1091649" authorid="6612">
+            <div class="comment-content" nodeid="1091649">
+                <div class="comment-header" nodeid="1091649">
+<a href="http://answers.unity3d.com/users/6612/bunny83.html" style="display: inline-block; max-width: 24px;" rel="user" nodeid="6612" data-hasqtip="22"> <img class="gravatar comment-user-gravatar" width="24" src="./Setting the parent of a transform which resides in a prefab is disabled to prevent data corruption. WHY___ - Unity Answers_files/90ae2ed3429ef8ab4087fb7105407bd6" id="" alt="avatar image" title="Bunny83">
+</a><a href="http://answers.unity3d.com/users/6612/bunny83.html" class="comment-user userinfo" rel="user" nodeid="6612" data-hasqtip="23">Bunny83 </a>                     <span class="comment-parent"><i class="icon-share-alt"></i> tpainton </span>
+                    <span class="comment-age friendly-date" title="2015, Nov 01 at 16:20:56+0000">
+                        ·
+                        <a href="http://answers.unity3d.com/comments/1091649/view.html">Nov 01, 2015 at 04:20 PM</a>
+                    </span>
+                    <span id="post-1091649-score" class="comment-score">0</span>
+                    <div class="comment-info" id="comment-1091649-info">
+
+                        <a id="vote-up-button-1091649" command="voteUp" href="http://answers.unity3d.com/questions/341714/setting-the-parent-of-a-transform-which-resides-in.html#" class="make-tooltip vote-up " title="Click to up vote"><i class=" icon-chevron-up"></i></a>
+
+                        <a id="vote-down-button-1091649" command="voteDown" href="http://answers.unity3d.com/questions/341714/setting-the-parent-of-a-transform-which-resides-in.html#" class="make-tooltip vote-down " title="Click to down vote"><i class=" icon-chevron-down"></i></a>
+
+
+
+                        <a href="http://answers.unity3d.com/questions/341714/setting-the-parent-of-a-transform-which-resides-in.html#" class="ajax-command" command="share" title="Share a link to this answer">Share</a>
+
+
+
+                    </div>
+                </div>
+                <div id="comment-1091649-left" class="comment-left">
+                    <div id="post-1091649-score" class="comment-score"></div>
+                </div>
+                <div class="comment-text"><p>It seems to be the same? you're doing something totally different than what the OP does in his code. Also show me one SO moderator that suggest to ask a question in an <strong>answer</strong>. If it's a small follow up question it's ok to post a <strong>comment</strong> but never an answer.</p>
+<p>"restart Unity" is almost never an answer. In some rare situations it might help. That's why that answer only has one upvote while the other two answers have 4 and 6 votes.</p>
+<p>Well, you got the downvote because the <strong>answer</strong> you've posted doesn't <strong>answer</strong> the question.
+</p>
+</div>
+
+            </div>
+
+
+        </div>
+
+        </div>
+
+        </div>
+        <span name="1091671"></span>
+        <div class="comment nsc " id="comment-1091671" activerev="1492205" nodeid="1091671" authorid="388952">
+            <div class="comment-content" nodeid="1091671">
+                <div class="comment-header" nodeid="1091671">
+<a href="http://answers.unity3d.com/users/388952/tpainton.html" style="display: inline-block; max-width: 24px;" rel="user" nodeid="388952" data-hasqtip="24"> <img class="gravatar comment-user-gravatar" width="24" src="./Setting the parent of a transform which resides in a prefab is disabled to prevent data corruption. WHY___ - Unity Answers_files/dd39dabecd24086f7f0c04179e6555d1" id="" alt="avatar image" title="tpainton">
+</a><a href="http://answers.unity3d.com/users/388952/tpainton.html" class="comment-user userinfo" rel="user" nodeid="388952" data-hasqtip="25">tpainton </a>                    
+                    <span class="comment-age friendly-date" title="2015, Nov 01 at 17:40:55+0000">
+                        ·
+                        <a href="http://answers.unity3d.com/comments/1091671/view.html">Nov 01, 2015 at 05:40 PM</a>
+                    </span>
+                    <span id="post-1091671-score" class="comment-score">0</span>
+                    <div class="comment-info" id="comment-1091671-info">
+
+                        <a id="vote-up-button-1091671" command="voteUp" href="http://answers.unity3d.com/questions/341714/setting-the-parent-of-a-transform-which-resides-in.html#" class="make-tooltip vote-up " title="Click to up vote"><i class=" icon-chevron-up"></i></a>
+
+                        <a id="vote-down-button-1091671" command="voteDown" href="http://answers.unity3d.com/questions/341714/setting-the-parent-of-a-transform-which-resides-in.html#" class="make-tooltip vote-down " title="Click to down vote"><i class=" icon-chevron-down"></i></a>
+
+
+
+                        <a href="http://answers.unity3d.com/questions/341714/setting-the-parent-of-a-transform-which-resides-in.html#" class="ajax-command" command="share" title="Share a link to this answer">Share</a>
+
+
+
+                    </div>
+                </div>
+                <div id="comment-1091671-left" class="comment-left">
+                    <div id="post-1091671-score" class="comment-score"></div>
+                </div>
+                <div class="comment-text"><p>Yea, well I just converted my answer to a comment and flushed your down vote :) That's a nice feature.<br></p></div>
+
+            </div>
+
+
+        </div>
+                    </div>
+                    <script type="text/javascript">
+                        $(function () {
+                            setupComments($('#answer-container-707328'), true, false, croles, "full", true)
+                        });
+                        $(document).ready(function () {
+                            var $answer = $("#answer-container-707328");
+                            var $replyLink = $answer.find(".reply-link");
+                            $replyLink.click(function (e) {
+                                e.preventDefault();
+                                $answer.find(".add-comment-link").click();
+                            });
+                        });
+                    </script>
+                </div>
+            </div>
+</div>
+</div>
+
+
+<style type="text/css">
+    #notifyFollowers{
+        margin: 0px;
+    }
+</style>
+<div class="widget answer-form-widget">
+    <div class="widget-header">
+        <i class="icon-pencil"></i>
+
+        <h3>Your answer</h3>
+    </div>
+    <div class="widget-content">
+
+        <div class="row-fluid">
+            <div class="span1 hidden-phone">
+<img src="./Setting the parent of a transform which resides in a prefab is disabled to prevent data corruption. WHY___ - Unity Answers_files/avi.jpg">
+
+            </div>
+
+            <div class="span11">
+                <form id="answer-form" data-drafttype="an answer" data-draftkey="answer-341714" action="http://answers.unity3d.com/answers/341714/post.html" method="POST"><input type="hidden" name="TH_CSRF" value="a-5281313650784184126">
+
+
+                    <fieldset>
+                        <div class="control-group">
+                            <div class="controls">
+                                <div id="wmd-button-bar" class="wmd-panel wmd-button-bar"><ul class="wmd-button-row"><li class="wmd-button wmd-bold-button" title="Strong &lt;strong&gt; Ctrl+B" style="background-position: 0px 0px;"></li><li class="wmd-button wmd-italic-button" title="Emphasis &lt;em&gt; Ctrl+I" style="background-position: -20px 0px;"></li><li class="wmd-spacer wmd-spacer1"></li><li class="wmd-button wmd-link-button" title="Hyperlink &lt;a&gt; Ctrl+L" style="background-position: -40px 0px;"></li><li class="wmd-button wmd-quote-button" title="Blockquote &lt;blockquote&gt; Ctrl+Q" style="background-position: -60px 0px;"></li><li class="wmd-button wmd-code-button" title="Code Sample &lt;pre&gt;&lt;code&gt; Ctrl+K" style="background-position: -80px 0px;"></li><li class="wmd-button wmd-image-button" title="Image &lt;img&gt; Ctrl+G" style="background-position: -120px 0px;"></li><li class="wmd-button wmd-attachment-button" title="Attachment Ctrl+U" style="background-position: -100px 0px;"></li><li class="wmd-spacer wmd-spacer2"></li><li class="wmd-button wmd-olist-button" title="Numbered List &lt;ol&gt; Ctrl+O" style="background-position: -140px 0px;"></li><li class="wmd-button wmd-ulist-button" title="Bulleted List &lt;ul&gt; Ctrl+U" style="background-position: -160px 0px;"></li><li class="wmd-button wmd-heading-button" title="Heading &lt;h1&gt;/&lt;h2&gt; Ctrl+H" style="background-position: -180px 0px;"></li><li class="wmd-button wmd-hr-button" title="Horizontal Rule &lt;hr&gt; Ctrl+R" style="background-position: -200px 0px;"></li><li class="wmd-spacer wmd-spacer3"></li><li class="wmd-button wmd-undo-button" title="Undo - Ctrl+Z" style="background-position: -220px -20px;"></li><li class="wmd-button wmd-redo-button" title="Redo - Ctrl+Shift+Z" style="background-position: -240px -20px;"></li><li class="wmd-button wmd-help-button" style="background-position: -260px 0px;"><a href="http://answers.unity3d.com/static/markdown/help.html" target="_blank" title="Markdown Help"></a></li></ul></div><textarea class="redactor" data-type="answer" id="body" name="body" rows="10" placeholder="Fill in the details..."></textarea><div id="previewer" class="wmd-panel"></div>
+                                <span class="help-inline">Hint: You can notify a user about this post by typing @username</span>
+                            </div>
+                        </div>
+                    </fieldset>
+
+
+
+<script type="text/javascript">
+    var attachmentsEnabled = true;
+    pageContext.url.authorizeAttachmentsUrl = "/authorizeAttachment.json";
+    pageContext.authorizeUploadContext = {
+        type: 'answer'
+    };
+</script>
+
+<div id="main-attachments-container" class="message">
+    <p>
+        <strong><label>Attachments:</label></strong>
+Up to 2 attachments (including images) can be used with a maximum of 524.3 kB each and 1.0 MB total.    </p>
+
+    <div id="img-attachments-container"></div>
+    <div id="attachments-container"></div>
+</div>
+
+
+                    <div class="form-actions">
+                        <div class="g-recaptcha" data-sitekey="6LdgnSUUAAAAAAqL8W_eR-OFMVywBpdvXECfMXtd"><div style="width: 304px; height: 78px;"><div><iframe src="./Setting the parent of a transform which resides in a prefab is disabled to prevent data corruption. WHY___ - Unity Answers_files/anchor.html" title="recaptcha widget" width="304" height="78" frameborder="0" scrolling="no" sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-top-navigation allow-modals allow-popups-to-escape-sandbox"></iframe></div><textarea id="g-recaptcha-response" name="g-recaptcha-response" class="g-recaptcha-response" style="width: 250px; height: 40px; border: 1px solid #c1c1c1; margin: 10px 25px; padding: 0px; resize: none;  display: none; "></textarea></div></div><input type="submit" class="btn btn-primary" value="Post Answer">
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script type="text/javascript">
+        commands.likeComment.setMsg('title.on', "click to cancel");
+    commands.likeComment.setMsg('title.off', "I like this comment");
+
+    commands.likeComment.setUrl('click.on', "/commands/%25ID%25/cancelvote.json");
+    commands.likeComment.setUrl('click.off', "/commands/%25ID%25/voteup.json");
+
+    commands.deleteComment.setUrl('click.off', "/commands/%25ID%25/delete.json");
+
+    commands.voteUp.urls = commands.likeComment.urls;
+
+    commands.voteUp.setMsg('title.on',  "Click to cancel vote");
+    commands.voteUp.setMsg('title.off',  "Click to up vote");
+
+    commands.voteDown.setUrl('click.on', commands.voteUp.urls['click.on']);
+    commands.voteDown.setUrl('click.off', "/commands/%25ID%25/votedown.json");
+
+    commands.voteDown.setMsg('title.on',  commands.voteUp.messages['title.on']);
+    commands.voteDown.setMsg('title.off', "Click to down vote");
+
+    commands.acceptAnswer.setUrl('click.on', "/commands/%25ID%25/unaccept.json");
+    commands.acceptAnswer.setUrl('click.off', "/commands/%25ID%25/accept.json");
+
+    commands.markFavorite.setMsg('title.on', "Remove your favorite mark from this question");
+    commands.markFavorite.setMsg('title.off', "Mark this question as favorite");
+
+    commands.markFavorite.setUrl('click.on', "/commands/%25ID%25/unmarkfavorite.json");
+    commands.markFavorite.setUrl('click.off', "/commands/%25ID%25/markfavorite.json");
+
+    commands.reportPost.setMsg('title.on', "Cancel your report");
+    commands.reportPost.setMsg('title.off', "Report as offensive (i.e containing spam, advertising, malicious text, etc.)");
+    commands.reportPost.setMsg('link.on', "Cancel Report");
+    commands.reportPost.setMsg('link.off', "Report");
+    commands.reportPost.setMsg('description', "Please select a reason below or use the text box to input your own reason.");
+
+    commands.reportPost.setMsg('reportHints', [
+        "Spam",
+        "Advertising",
+        "Offensive, Abusive, or Inappropriate",
+        "Content violates terms of use",
+        "Copyright Violation",
+        "Misleading",
+        "Someone is not being nice",
+        "Not relevant/off-topic",
+        "Other"]);
+
+
+    commands.reportPost.setUrl('click.on', "/commands/%25ID%25/cancelReport.json");
+    commands.reportPost.setUrl('click.off', "/commands/%25ID%25/report.json");
+
+    commands.publishPost.setUrl('click', "/commands/%25ID%25/publish.json");
+    commands.publishPost.setMsg('linkText', "Publish");
+
+    commands.sendToMod.setUrl('click', "/commands/%25ID%25/sendToMod.json");
+    commands.sendToMod.setMsg('linkText', "Send to Moderation");
+
+    commands.redirectQuestion.setMsg('linkText.off', "Redirect");
+    commands.redirectQuestion.setMsg('linkText.on', "Cancel Redirect");
+    commands.redirectQuestion.setMsg('header', "Redirect Into An Existing Question");
+    commands.redirectQuestion.setMsg('search', "Search for a question:");
+    commands.redirectQuestion.setMsg('related', "Pick a related question:");
+
+    commands.redirectQuestion.setUrl('click.off', "/commands/%25ID%25/redirect.json");
+    commands.redirectQuestion.setUrl('click.on', "/commands/%25ID%25/unredirect.json");
+    commands.redirectQuestion.setUrl('search', "/search.json");
+
+    commands.deletePost.urls = commands.deleteComment.urls;
+    commands.deletePost.setUrl('click.on', "/commands/%25ID%25/undelete.json");
+
+    commands.deletePost.setMsg('linkText.off', "Delete");
+    commands.deletePost.setMsg('linkText.on', "Undelete");
+
+    commands.closeQuestion.setMsg('linkText.on', "Reopen");
+    commands.closeQuestion.setMsg('linkText.off', "Close");
+    commands.closeQuestion.setMsg('description', "Please select a reason below or use the text box to input your own reason.");
+    commands.closeQuestion.setMsg('lock', "also lock comments");
+
+    commands.closeQuestion.setMsg('reportHints', [
+        "Duplicate Question",
+        "Question is off-topic or not relevant",
+        "Too subjective and argumentative",
+        "The question is answered, right answer was accepted",
+        "Problem is not reproducible or outdated",
+        "Other"]);
+
+    commands.closeQuestion.setUrl('click.on', "/commands/%25ID%25/reopen.json");
+    commands.closeQuestion.setUrl('click.off', "/commands/%25ID%25/close.json");
+
+    commands.lockPost.setMsg('linkText.on', "Unlock Comments");
+    commands.lockPost.setMsg('linkText.off', "Lock Comments");
+    commands.lockPost.setMsg('description', "Please select a reason below or use the text box to input your own reason.");
+
+    commands.lockPost.setMsg('reportHints', [
+        "Discussion has gone too far",
+        "No more thank you or +1 comments",
+        "Other"]);
+
+    commands.lockPost.setUrl('click.on', "/commands/%25ID%25/unlock.json");
+    commands.lockPost.setUrl('click.off', "/commands/%25ID%25/lock.json");
+
+    commands.wikifyPost.setMsg('linkText.off', "Wikify");
+    commands.wikifyPost.setMsg('linkText.on', "Unwikify");
+
+    commands.wikifyPost.setUrl('click.on', "/commands/%25ID%25/cancelwiki.json");
+    commands.wikifyPost.setUrl('click.off', "/commands/%25ID%25/wikify.json");
+
+    commands.convertToComment.setUrl('click', "/commands/%25ID%25/convertToComment.json");
+    commands.convertToComment.setUrl('candidates', "/commands/%25ID%25/convertToComment/possibleParents.json");
+    commands.convertToComment.setMsg('linkText', "Convert to Comment");
+    commands.convertToComment.setMsg('description', "Place the comment under:");
+    commands.convertToComment.setMsg('question', "Question");
+    commands.convertToComment.setMsg('answer', "Answer");
+
+    commands.convertToAnswer.setUrl('click', "/commands/%25ID%25/convertToAnswer.json");
+
+    commands.moveToSpace.setUrl('click', "/commands/%25ID%25/moveToSpace.json");
+    commands.moveToSpace.setUrl('candidates', "/spaces/%25ID%25/moveToCandidates.json");
+    commands.moveToSpace.setMsg('linkText', "Move");
+    commands.moveToSpace.setMsg('description', "Select the space to move the question to");
+
+	commands.switchPrivacy.setMsg('linkText.off', "Make private");
+    commands.switchPrivacy.setMsg('linkText.on', "Make public");
+
+    commands.switchPrivacy.setUrl('click.on', "/commands/%25ID%25/makePublic.json");
+    commands.switchPrivacy.setUrl('click.off', "/commands/%25ID%25/makePrivate.json");
+
+    commands.giveReputation.setUrl('click', "/commands/giveReputation.json");
+    commands.giveReputation.setMsg('answerIntro', "If you like this answer you can reward the user with reputation points.");
+    commands.giveReputation.setMsg('questionIntro', "If you like this question you can reward the user with reputation points.");
+    commands.giveReputation.setMsg('description', "Use the input field to choose the number of points you would like to give.");
+    commands.giveReputation.setMsg('points', "Points:");
+
+    commands.share.setUrl("answer-url", "http://answers.unity3d.com/answers/%25ID%25/view.html");
+    commands.share.setUrl("comment-url", "http://answers.unity3d.com/comments/%25ID%25/view.html");
+    commands.share.setMsg("description", "Copy and paste the URL below to share a direct link to this answer.");
+    commands.share.setMsg("comment-description", "Copy and paste the URL below to share a direct link to this comment.");
+    commands.share.setMsg("title", "Share a link to this answer");
+    commands.share.setMsg("comment-title", "Share a link to this comment");
+
+    pageContext.i18n.seeRevisions = 'see revisions';
+    pageContext.url.seeRevisions = '/revisions/%25ID%25.html';
+    pageContext.url.questionEdit = '/questions/%25ID%25/edit.html';
+    pageContext.url.answerEdit = '/answers/%25ID%25/edit.html';
+    pageContext.url.commentEdit = '/comments/%25ID%25/edit.html';
+
+</script>
+<script type="text/x-jquery-tmpl" id="give-reputation-dialog">
+        <p style="font-size:14px;">{{if isAnswer }} ${answerIntro} {{/if}} {{if !isAnswer }} ${questionIntro} {{/if}}</p>
+        <p style="font-size:14px;">${description}</p>
+        <form >
+            <div style="font-size:14px;">
+                ${points} <input class="input-mini" style="margin-top: 10px;" type="text" name="points" /> (${currentUserPoints} ${currentPointsLabel})
+            </div>
+        </form>
+        <p style="color:red" id="invaliderror"></p>
+</script>
+<script type="text/x-jquery-tmpl" id="flag-or-close-post-dialog">
+
+    <p>${description}</p>
+
+    <form style="with: 250px;margin-bottom:10px">
+      <p>  <select name="sample" class="prompt-examples" style="width: 100%;">
+            {{each(i, hint) reportHints }}
+            <option value="${hint}">${hint}</option>
+            {{/each}}
+        </select>
+
+          </p>
+        <p><textarea name="prompt" style="width: 100%; padding: 0;"></textarea>
+        {{if canLock }}
+        <input type="checkbox" name="lock" value="true" /> ${lock}
+        {{/if}}
+        </p>
+    </form>
+
+</script>
+<script type="text/x-jquery-tmpl" id="convert-to-comment-dialog">
+    ${description}
+    <form>
+        <select name="targetParent" class="prompt-examples">
+            {{each(p, target) parentCandidates }}
+            <option value="${target.id}">${target.summary}</option>
+            {{/each}}
+        </select>
+    </form>
+</script>
+<script type="text/x-jquery-tmpl" id="move-to-space-dialog">
+    ${description}
+    <form>
+        <select name="targetSpace" class="prompt-examples">
+            {{each(p, target) spaces }}
+            <option value="${target.id}">${target.name}</option>
+            {{/each}}
+        </select>
+    </form>
+</script>
+
+<script type="text/x-jquery-tmpl" id="share-dialog">
+    <p>${description}</p>
+    <input type="text" class="input-block-level" value="${shareURL}"/>
+</script>
+
+<script type="text/x-jquery-tmpl" id="advanced-visibility-dialog">
+    <form>
+        <div>
+            {{if (perm.ag || perm.og) }}
+                <h4>${msg.selectGroups}</h4>
+                {{if groupsCheck }}
+                    {{each(i, group) groups }}
+                        <p><input type="checkbox" name="recipients" value="${group.id}" /> ${group.name}</p>
+                    {{/each}}
+                {{else}}
+                    <input type="text" class="comment-recipients-groups-autocomplete" />
+                    <div class="comment-recipients-groups-container" ></div>
+                {{/if}}
+            {{/if}}
+            {{if (perm.op || perm.mod || perm.as) }}
+                <h4>${msg.selectOther}</h4>
+                {{if perm.op }}
+                    <input type="checkbox" name="specialRecipients" value="op" /> ${msg.selectOriginalPoster}<br />
+                {{/if}}
+                {{if perm.m }}
+                    <input type="checkbox" name="specialRecipients" value="mod" /> ${msg.selectModerators}<br />
+                {{/if}}
+                {{if perm.as }}
+                    <input type="checkbox" name="specialRecipients" value="asg" /> ${msg.selectAssignees}<br />
+                {{/if}}
+            {{/if}}
+        </div>
+    </form>
+</script>
+<script type="text/x-jquery-tmpl" id="new-comment-skeleton">
+<div class="comment nsc" id="comment-${comment.id}" activerev="${comment.activeRevisionId}" nodeid="${comment.id}"
+     authorid="${comment.author.id}">
+<div class="comment-content" nodeid="${comment.id}">
+<div class="comment-header">
+    <a class="comment-user-gravatar" nodeId="${author.id}" rel="user" href="${author.url}"><img class="gravatar"
+                                                                                                src="${author.avatar}"
+                                                                                                style="width:${comment.depth > 0 ? 24 : 36};"></a>
+    <a class="comment-user userinfo" nodeId="${author.id}" rel="user" href="${author.url}">${(pageContext.userRealName && comment.author.realname)? comment.author.realname : comment.author.username}</a>
+    {{if comment.parentId != comment.originalParentId}}<span class="comment-parent"><i class="icon-share-alt"></i> ${(pageContext.userRealName && comment.parentAuthor.realname)?comment.parentAuthor.realname : comment.parentAuthor.username}</span>
+    {{/if}}
+    <span class="comment-age friendly-date" title="${creationDateFormatted}">
+                &middot; ${commentDateFriendly}
+            </span>
+<div class="comment-info btn-broup" id="comment-${comment.id}-info">
+    <span id="post-${comment.id}-score" class="comment-score">${comment.score}</span>
+        <a id="vote-up-button-${comment.id}" command="voteUp"  href="#" class="make-tooltip"
+           title="Vote comment up">Like </a>
+        <a id="vote-down-button-${comment.id}" command="voteDown" href="#" class="make-tooltip"
+         title="Vote comment up"><i class=" icon-chevron-down"></i></a>
+
+        {{if crel.canComment }}
+            <a id="comment-${comment.id}-reply" href="#" class="comment-reply"><i
+                class="icon-reply"></i> Reply</a>
+        {{/if}}
+
+        <a href="#" class="ajax-command"
+                           command="share">Share</a>
+
+        {{if (crel.canReport || crel.canCancelReport) || crel.canEdit || crel.canDelete || crel.canConvertToAnswer }}
+
+        <div class="dropdown" style="display:inline">
+            <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                <i class=" icon-cog"></i> More...</a>
+            <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+                {{if crel.canReport || crel.canCancelReport }}
+                    <li><a rel="nofollow" class="ajax-coxmmand {{if crel.reported }} on{{/if}}" href="#"
+                           command="reportPost">
+
+
+                        {{if !crel.reported }}123Flag{{else}}label.report.cancel{{/if}}
+                        {{if crel.canViewReports }}(${comment.reportCount}){{/if}}
+                    </a></li>
+                {{/if}}
+                {{if crel.canViewRevisions }}
+                    <li class="item">
+                        <a rel="nofollow" class="node-tools-revisions-link"
+                           href="${revisionUrl}">See revisions</a>
+                    </li>
+
+                {{/if}}
+                {{if crel.canEdit }}
+                    <li><a id="comment-${comment.id}-edit" href="#"
+                           class="comment-edit">Edit</a>
+                    </li>
+                {{/if}}
+                {{if crel.canDelete }}
+                    <li><a id="comment-${comment.id}-delete" href="#" class="comment-delete"
+                           command="deleteComment">Delete </a>
+                    </li>
+                {{/if}}
+                {{if crel.canConvertToAnswer }}
+                    <li><a href="#" class="convert-to-answer"
+                           command="convertToAnswer">Convert to answer</a>
+                    </li>
+                {{/if}}
+            </ul>
+        </div>
+
+        {{/if}}
+
+</div>
+</div>
+    <div id="comment-${comment.id}-left" class="comment-left">
+        <div id="post-${comment.id}-score" class="comment-score"></div>
+    </div>
+    <div class="comment-text">{{html comment.bodyAsHTML}}</div>
+</div>
+</div>
+</script>
+<script type="text/x-jquery-tmpl" id="flag-or-close-post-dialog">
+    ${description}
+    <select name="sample" class="prompt-examples">
+        {{each(i, hint) reportHints }}
+        <option value="${hint}">${hint}</option>
+        {{/each}}
+    </select>
+    <textarea name="prompt">${reportHints[0]}</textarea>
+</script><script type="text/x-jquery-tmpl" id="redirect-question-dialog">
+    <h4>Setting the parent of a transform which resides in a prefab is disabled to prevent data corruption. WHY???</h4>
+    <label class="control-label" style="margin: 18px 0 22px;" for="searchQuestion">into:</label>
+    <div class="controls">
+        <div class="SearchAnswers">
+            <input type="text" style="background-image: none;" class="textInput input-block-level" id="searchQuestion" placeholder="Search for a question" onclick="if(this.value=='Find Question'){this.value = ''}" />
+            <div id="results"></div>
+            <form class="hidden">
+                <input type="hidden" name="to" />
+            </form>
+        </div>
+    </div>
+</script><script type="text/x-jquery-tmpl" id="switch-privacy-dialog">
+Are you sure you want to make this post private? Only you and users with special permissions will be able to see it.</script><script type="text/x-jquery-tmpl" id="post-wiki-mark">
+    <div class="community-wiki">
+        <div class="wiki-icon">&nbsp;</div>
+        <div class="wiki-text">
+            {{if isAnswer }}
+        This answer is marked "community wiki".
+            {{else}}
+        This question is marked "community wiki".
+            {{/if}}
+
+            {{if canEdit }}
+            <br />Feel free to <a href="${editUrl}">edit it</a>.
+            {{/if}}
+        </div>
+    </div>
+</script><script type="text/x-jquery-tmpl" id="user-with-follow">
+    <li class="userWithFollow">
+        <a class="gravatar-link" href="${user.profileUrl}"><img class="gravatar" src="${user.avatarUrl}"></a>
+        <div class="info">
+            <a href="${user.profileUrl}" class="username">${user.displayName}</a>
+        </div>
+        {{if user.id != currentUser.id}}
+        {{if $.grep(follows, function(follow){ return follow.followed.id == user.id }).length < 1}}
+        <a class="followLink btn" command="follow" data-node-type="user" nodeId="${user.id}"></a>
+        {{else}}
+        <a class="followLink on btn" command="follow" data-node-type="user" nodeId="${user.id}" ></a>
+        {{/if}}
+        {{/if}}
+    </li>
+</script>
+
+
+
+                                </div>
+                                <div class="span4 sidebarTwo">
+        <div>
+             <h3>Welcome to Unity Answers</h3>     <p>The best place to ask and answer questions about development with Unity. </p> <p>To help users navigate the site we have posted a <a href="http://answers.unity3d.com/page/userguide.html">site navigation guide. </a> </p> <p> If you are a new user to Unity Answers, check out our <a href="http://answers.unity3d.com/page/faq.html">FAQ</a> for more information.</p> 
+<p>Make sure to check out our <a href="https://support.unity3d.com/hc/en-us">Knowledge Base</a> for commonly asked Unity questions. </p> 
+ <p>If you are a moderator, see our <a href="http://answers.unity3d.com/page/modguide.html">Moderator Guidelines</a> page.</p>  <p>We are making improvements to UA, see the <a href="http://answers.unity3d.com/page/changes.html">list of changes</a>.</p> 
+        </div>
+        <div>
+            
+
+<div class="widget question-follow-widget">
+    <div class="widget-header">
+        <i class="icon-arrow-right"></i>
+        <h3>Follow this Question</h3>
+    </div>
+    <div class="widget-content">
+        <p>
+            <a class="btn btn-small" title="Subscribe to Answers" href="http://answers.unity3d.com/feed/341714/answers.rss">
+                <i class="icon-rss"></i>
+
+                Answers </a>
+
+
+            <a class="btn btn-small" title="Subscribe to Comments and Answers" href="http://answers.unity3d.com/feed/341714/comments-and-answers.rss">
+                <i class="icon-rss"></i>
+Answers and Comments            </a>
+        </p>
+
+        <p>
+<strong>15</strong> People are following this question.
+        </p><div class="followers">
+
+<a href="http://answers.unity3d.com/users/24656/zico-mahilary.html" style="display: inline-block; max-width: 24px;" rel="user" nodeid="24656" data-hasqtip="26"> <img class="gravatar " width="24" src="./Setting the parent of a transform which resides in a prefab is disabled to prevent data corruption. WHY___ - Unity Answers_files/db9c647d822664a5aa731539882b8f0c(1)" id="" alt="avatar image" title="zico_mahilary">
+</a><a href="http://answers.unity3d.com/users/9603/crazyknight.html" style="display: inline-block; max-width: 24px;" rel="user" nodeid="9603" data-hasqtip="27"> <img class="gravatar " width="24" src="./Setting the parent of a transform which resides in a prefab is disabled to prevent data corruption. WHY___ - Unity Answers_files/690c5a885e806395cfced1fa61cc61d2" id="" alt="avatar image" title="crazyKnight">
+</a><a href="http://answers.unity3d.com/users/19124/the-beginner.html" style="display: inline-block; max-width: 24px;" rel="user" nodeid="19124" data-hasqtip="28"> <img class="gravatar " width="24" src="./Setting the parent of a transform which resides in a prefab is disabled to prevent data corruption. WHY___ - Unity Answers_files/40330279ce2c8aff879d246aafdeef01" id="" alt="avatar image" title="The_beginner">
+</a><a href="http://answers.unity3d.com/users/28403/echoespf.html" style="display: inline-block; max-width: 24px;" rel="user" nodeid="28403" data-hasqtip="29"> <img class="gravatar " width="24" src="./Setting the parent of a transform which resides in a prefab is disabled to prevent data corruption. WHY___ - Unity Answers_files/d5df01556bb2634c880362e35b2e0382" id="" alt="avatar image" title="echoespf">
+</a><a href="http://answers.unity3d.com/users/33834/zero84085.html" style="display: inline-block; max-width: 24px;" rel="user" nodeid="33834" data-hasqtip="30"> <img class="gravatar " width="24" src="./Setting the parent of a transform which resides in a prefab is disabled to prevent data corruption. WHY___ - Unity Answers_files/6d422e30f9eba9af86354375d53ffe59" id="" alt="avatar image" title="zero84085">
+</a><a href="http://answers.unity3d.com/users/35136/prepgames.html" style="display: inline-block; max-width: 24px;" rel="user" nodeid="35136" data-hasqtip="31"> <img class="gravatar " width="24" src="./Setting the parent of a transform which resides in a prefab is disabled to prevent data corruption. WHY___ - Unity Answers_files/26c2312de2549c4268fb2453b3acbdf1" id="" alt="avatar image" title="prepgames">
+</a><a href="http://answers.unity3d.com/users/36545/urooba.html" style="display: inline-block; max-width: 24px;" rel="user" nodeid="36545" data-hasqtip="32"> <img class="gravatar " width="24" src="./Setting the parent of a transform which resides in a prefab is disabled to prevent data corruption. WHY___ - Unity Answers_files/0eaf6fde1a84409f5e665ca117cec63a" id="" alt="avatar image" title="urooba">
+</a><a href="http://answers.unity3d.com/users/37225/mrpdwash.html" style="display: inline-block; max-width: 24px;" rel="user" nodeid="37225" data-hasqtip="33"> <img class="gravatar " width="24" src="./Setting the parent of a transform which resides in a prefab is disabled to prevent data corruption. WHY___ - Unity Answers_files/d4e0ea157667186e5fa4751d7bb20ce7" id="" alt="avatar image" title="MrPdwash">
+</a><a href="http://answers.unity3d.com/users/44535/blackhunter.html" style="display: inline-block; max-width: 24px;" rel="user" nodeid="44535" data-hasqtip="34"> <img class="gravatar " width="24" src="./Setting the parent of a transform which resides in a prefab is disabled to prevent data corruption. WHY___ - Unity Answers_files/view(1).html" id="" alt="avatar image" title="BlackHunter">
+</a><a href="http://answers.unity3d.com/users/46079/shrandis.html" style="display: inline-block; max-width: 24px;" rel="user" nodeid="46079" data-hasqtip="35"> <img class="gravatar " width="24" src="./Setting the parent of a transform which resides in a prefab is disabled to prevent data corruption. WHY___ - Unity Answers_files/view(2).html" id="" alt="avatar image" title="Shrandis">
+</a><a href="http://answers.unity3d.com/users/6612/bunny83.html" style="display: inline-block; max-width: 24px;" rel="user" nodeid="6612" data-hasqtip="36"> <img class="gravatar " width="24" src="./Setting the parent of a transform which resides in a prefab is disabled to prevent data corruption. WHY___ - Unity Answers_files/90ae2ed3429ef8ab4087fb7105407bd6" id="" alt="avatar image" title="Bunny83">
+</a><a href="http://answers.unity3d.com/users/70666/cinnax.html" style="display: inline-block; max-width: 24px;" rel="user" nodeid="70666" data-hasqtip="37"> <img class="gravatar " width="24" src="./Setting the parent of a transform which resides in a prefab is disabled to prevent data corruption. WHY___ - Unity Answers_files/d2c9083cc51afa2e84f65c1758eb9892(1)" id="" alt="avatar image" title="Cinnax">
+</a><a href="http://answers.unity3d.com/users/388952/tpainton.html" style="display: inline-block; max-width: 24px;" rel="user" nodeid="388952" data-hasqtip="38"> <img class="gravatar " width="24" src="./Setting the parent of a transform which resides in a prefab is disabled to prevent data corruption. WHY___ - Unity Answers_files/dd39dabecd24086f7f0c04179e6555d1" id="" alt="avatar image" title="tpainton">
+</a><a href="http://answers.unity3d.com/users/679206/nalincah.html" style="display: inline-block; max-width: 24px;" rel="user" nodeid="679206" data-hasqtip="39"> <img class="gravatar " width="24" src="./Setting the parent of a transform which resides in a prefab is disabled to prevent data corruption. WHY___ - Unity Answers_files/3c64def94e788e140e004c4b1c07721d" id="" alt="avatar image" title="Nalincah">
+</a><a href="http://answers.unity3d.com/users/1005580/iddkfa.html" style="display: inline-block; max-width: 24px;" rel="user" nodeid="1005580" data-hasqtip="40"> <img class="gravatar " width="24" src="./Setting the parent of a transform which resides in a prefab is disabled to prevent data corruption. WHY___ - Unity Answers_files/6965487edb5f900e03b76b434b784c7c" id="" alt="avatar image" title="iddkfa">
+</a>        </div>
+        <p></p>
+    </div>
+
+</div>
+
+
+
+
+
+        </div>
+        <div>
+            
+
+
+<div class="widget">
+    <div class="widget-header">
+        <i class="icon-list-alt"></i>
+        <h3>Related Questions</h3>
+    </div>
+    <div class="widget-content">
+                <p><a href="http://answers.unity3d.com/questions/539578/make-a-simple-tree-begginer-problem.html">Make a simple tree</a>
+                1
+Answer
+                </p>
+
+                <p><a href="http://answers.unity3d.com/questions/823936/parent-object-is-getting-generated-why.html">Parent object is getting generated why ??</a>
+                1
+Answer
+                </p>
+
+                <p><a href="http://answers.unity3d.com/questions/260045/make-a-gameobject-child-to-a-dragged-reference-gam.html">Make a GameObject child to a "Dragged Reference" GameObject doesn't work!</a>
+                0
+Answers
+                </p>
+
+                <p><a href="http://answers.unity3d.com/questions/996094/separate-child-rotation.html">Separate child rotation</a>
+                1
+Answer
+                </p>
+
+                <p><a href="http://answers.unity3d.com/questions/1165603/assign-parent-object-to-target.html">Assign parent object to target</a>
+                2
+Answers
+                </p>
+
+    </div>
+</div>
+
+
+        </div>
+        <div>
+            
+        </div>
+
+                                </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+    <div class="push"></div>
+</section></div>
+
+
+<a class="dummy-navbar-link hidden"></a>
+<div class="off-canvas-nav sidr left" id="sidr" style="display:none;">
+    <ul class="nav nav-list">
+            <li class="nav-header">
+Anonymous        </li>
+        <li>
+            <a href="http://answers.unity3d.com/users/login.html">Sign in</a>
+        </li>
+        <li class="nav-header">Create</li>
+        <li>
+            <a href="http://answers.unity3d.com/questions/ask.html?space=8">Ask a question</a>
+        </li>
+
+
+        <li class="nav-header">Spaces</li>
+
+
+
+        
+                    <li class="active">
+                <a class="main-nav" href="http://answers.unity3d.com/spaces/8/index.html">Default</a>
+            </li><li>
+                <a class="main-nav" href="http://answers.unity3d.com/spaces/9/index.html">Help Room</a>
+            </li><li>
+                <a class="main-nav" href="http://answers.unity3d.com/spaces/12/index.html">META</a>
+            </li><li>
+                <a class="main-nav" href="http://answers.unity3d.com/spaces/11/index.html">Moderators</a>
+
+
+
+        </li><li class="nav-header">Explore</li>
+        <li>
+            <a href="http://answers.unity3d.com/topics.html">Topics</a>
+        </li>
+            <li>
+                <a href="http://answers.unity3d.com/questions/index.html">Questions</a>
+            </li>
+
+        <li>
+            <a href="http://answers.unity3d.com/users/index.html">Users</a>
+        </li>
+
+
+        <li>
+            <a href="http://answers.unity3d.com/badge/types.html">Badges</a>
+        </li>
+    </ul>
+</div><script type="text/x-jquery-tmpl" id="user-popover">
+    <div class="user-popover ahub-popover">
+        <div class="ahub-popover-content">
+            <div class="header">
+                <div class="popover-gravatar">
+                    <a href="${profileUser.profileUrl}">
+                        <img id="" class="gravatar " height="84" width="84" title="${profileUser.displayName}" alt="avatar image"  src="${pageContext.url.userAvatar.replace("%7BuserId%7D",profileUser.id)}?s=84">
+                    </a>
+                </div>
+                <p class="nameAndTagline">
+                    <a href="${profileUser.profileUrl}" class="username">${profileUser.displayName}</a><br>
+                    {{if profileUser.tagline}}<span class="tagline">${profileUser.tagline}</span>{{else}}{{if profileUser.location}}<span class="location">${profileUser.location}</span>{{/if}}{{/if}}
+                </p>
+                {{if currentUser.id != profileUser.id}}<a class="btn btn-follow {{if currentUserFollowing}}on btn-info{{/if}}" command="follow" data-node-type="user" nodeId="${profileUser.id}"></a>{{/if}}
+            </div>
+            <div class="body">
+                <div class="stats-wrapper">
+                    <ul class="stats unstyled">
+                        <li><a href="${profileUser.profileUrl}"><span class="count">${profileUser.reputation}</span><br>${i18n.reputation}</a></li>
+                        <li><a href="${profileUser.profileUrl}"><span class="count">${profileUser.postCount}</span><br>${i18n.posts}</a></li>
+                        <li><a href="${profileUser.profileUrl}"><span class="count">${profileUser.userFollowCount}</span><br>${i18n.following}</a></li>
+                        <li><a href="${profileUser.profileUrl}"><span class="count">${profileUser.followerCount}</span><br>${i18n.followers}</a></li>
+                        <li><a href="${profileUser.profileUrl}"><span class="count">${profileUser.creationDateObj.getMonth() + 1 + "/" + profileUser.creationDateObj.getFullYear().toString().substring(2,4)}</span><br>${i18n.joined}</a></li>
+                    </ul>
+                    <div class="clearfix"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</script><script type="text/x-jquery-tmpl" id="topic-popover">
+    <div class="topic-popover ahub-popover">
+        <div class="ahub-popover-content">
+            <div class="header">
+                <div class="popover-icon">
+                    <a href="${topic.url}">
+                        <img id="" class="gravatar " height="84" width="84" title="${topic.name}" alt="${topic.name} icon" src="${topic.icon}">
+                    </a>
+                </div>
+                <p class="name"><a href="${topic.url}">${topic.name}</a></p>
+                <a class="btn btn-follow {{if currentUserFollowing}}on btn-info{{/if}}" command="follow" data-node-type="topic" nodeId="${topic.name}"></a>
+            </div>
+            <div class="body">
+                <div class="stats-wrapper">
+                    <ul class="stats unstyled">
+                        <li><a href="${topic.url}"><span class="count">${followerCount}</span><br>${i18n.followers}</a></li>
+                        <li><a href="${topic.url}"><span class="count">${questionCount}</span><br>${i18n.questions}</a></li>
+                        <li><a href="${topic.url}"><span class="count">${answerCount}</span><br>${i18n.answers}</a></li>
+                    </ul>
+                    <div class="clearfix"></div>
+                </div>
+                {{if description}}<div class="description">{{html description}}</div>{{/if}}
+            </div>
+        </div>
+    </div>
+</script>
+<script type="text/x-jquery-tmpl" id="badge-popover">
+    <div class="badge-popover ahub-popover">
+        <div class="ahub-popover-content">
+            <div class="header">
+                <div class="pull-left">
+                    <img class="gravatar award-icon" height="84" width="84" title="${awardType.name}" alt="avatar image" src="${awardType.awardIconSrc}">
+                </div>
+                <p class="nameAndTagline">
+                    <a href="${awardType.awardUrl}" class="name">${awardType.name}</a><br>
+                    <span class="tagline">${awardType.description}</span>
+                </p>   
+            </div>
+            <div class="body">
+                	<div class="stats-wrapper">
+	                	<ul class="stats unstyled">
+							<li><a href="${awardType.awardUrl}"><span class="count">${awardPager.totalCount}</span><br>${i18n.awarded}</a></li>
+	                		<li>
+	                			<ul class="users unstyled">
+	                				<li><span class="user-list-title">${i18n.completedBy}:</span></li>
+			                		{{each awardPager.list}}
+				                		<li>
+					                		<a href="${$value.user.profileUrl}" title="${$value.user.username}">
+					                			<img class="gravatar " width="32" height="32" src="${$value.user.avatar}?s=32">
+					                		</a>
+					                	</li>
+				                	{{/each}}
+				                	<div class="clearfix"></div>
+		                		</ul>
+	                		</li>
+	                		<div class="clearfix"></div>
+	                	</ul>
+	                </div>
+            </div>
+        </div>
+    </div>
+</script>
+<script type="text/javascript">
+    var searchItemMouseDown = false;
+    var $searchAuto = $("#search-query").autocomplete({
+        open: function () {
+            $searchAuto.addClass("open");
+            $("#searchResultsAutoComplete").find("a").mousedown(function (e) {
+                searchItemMouseDown = true;
+            });
+        },
+        close: function (e) {
+            $searchAuto.removeClass("open");
+        },
+        appendTo: '#searchResultsAutoComplete',
+        autoFocus: false,
+        highlight: function (match, keywords) {
+            keywords = keywords.split(' ').join('|');
+            return match.replace(new RegExp("(" + keywords + ")", "gi"), '<b>$1</b>');
+        },
+        source: function (request, response) {
+            var query = request.term;
+            var labelText = $('<div/>').text(request.term).html();
+
+            if (!/\s/.test(query)) {
+                query += "*";
+            }
+
+            $.ajax({
+                url: '/search.json',
+                dataType: 'json',
+                minLength: 0,
+                delay: 30,
+                data: { q: query, page: 1, pageSize: 7, type: "object", compact: 'true' },
+                success: function (data) {
+                	var allResults = data.searchResults.results.concat(data.externalSearchResults.results);
+                    var $results = $.map(allResults, function (item, index) {
+                        if (item != null) {
+                            if (item.username){
+                                var name = item.username;
+                                if(item.realname){
+                                    name += " | " + item.realname;
+                                }
+                                return {
+
+                                    label: name.replace(
+                                            new RegExp(
+                                                            "(?![^&;]+;)(?!<[^<>]*)(" +
+                                                            $.ui.autocomplete.escapeRegex(request.term) +
+                                                            ")(?![^<>]*>)(?![^&;]+;)", "gi"
+                                            ), "<strong>$1</strong>"),
+                                    url: "/users/%7Bid%7D/%7Bplug%7D.html", //item.id
+                                    value: name,
+                                    id: item.id,
+                                    plug: item.plug,
+                                    type: "User",
+                                    emailHash: item.emailHash
+                                };
+                            }
+                            switch (item.type) {
+                                case 'topic':
+                                    return {
+                                        label: item.name.replace(
+                                                new RegExp(
+                                                        "(?![^&;]+;)(?!<[^<>]*)(" +
+                                                                $.ui.autocomplete.escapeRegex(request.term) +
+                                                                ")(?![^<>]*>)(?![^&;]+;)", "gi"
+                                                ), "<strong>$1</strong>"),
+                                        url: "/topics/%7Bid%7D.html", //item.id
+                                        value: item.name,
+                                        id: item.name,
+                                        plug: item.plug,
+                                        type: "Topic"
+                                    };
+                                case 'user':
+                                    var name = item.username;
+                                    if(item.realname){
+                                        name += " | " + item.realname;
+                                    }
+                                    return {
+
+                                        label: name.replace(
+                                                new RegExp(
+                                                        "(?![^&;]+;)(?!<[^<>]*)(" +
+                                                                $.ui.autocomplete.escapeRegex(request.term) +
+                                                                ")(?![^<>]*>)(?![^&;]+;)", "gi"
+                                                ), "<strong>$1</strong>"),
+                                        url: "/users/%7Bid%7D/%7Bplug%7D.html", //item.id
+                                        value: name,
+                                        id: item.id,
+                                        plug: item.plug,
+                                        type: "User",
+                                        emailHash: item.emailHash
+                                    };
+                                case 'question':
+                                    return {
+                                        label: item.title.replace(
+                                                new RegExp(
+                                                        "(?![^&;]+;)(?!<[^<>]*)(" +
+                                                                $.ui.autocomplete.escapeRegex(request.term) +
+                                                                ")(?![^<>]*>)(?![^&;]+;)", "gi"
+                                                ), "<strong>$1</strong>"),
+                                        url: "/questions/%7Bid%7D/%7Bplug%7D.html", //item.id
+                                        value: item.title,
+                                        id: item.id,
+                                        plug: item.plug,
+                                        type: item.type
+                                    };
+                                default:
+                                    if (item.title) {
+	                                    return {
+	                                        label: item.title.replace(
+	                                                new RegExp(
+	                                                        "(?![^&;]+;)(?!<[^<>]*)(" +
+	                                                                $.ui.autocomplete.escapeRegex(request.term) +
+	                                                                ")(?![^<>]*>)(?![^&;]+;)", "gi"
+	                                                ), "<strong>$1</strong>"),
+	                                        //url: "/content/%7Btype%7D/%7Bid%7D/%7Bplug%7D.html", //item.id
+	                                        url: item.url,
+	                                        value: item.title,
+	                                        id: item.id,
+	                                        plug: item.plug,
+	                                        type: item.type
+	                                    };
+                                    }
+                                    return null;
+                            }
+                        }
+                    });
+                    $results.push({
+                        label: "Search: " + "\"" + $.trim(labelText) + "\"",
+                        url: "/search.html?q={query}",
+                        query: request.term,
+                        value: request.term
+                    });
+                    $results.push({
+                        label: "Add Question: <strong>\"$q\"<\/strong>".replace("$q", $.trim(labelText)),
+                        url: "/questions/ask.html?a=true&q={query}&space=8",
+                        query: request.term,
+                        value: request.term
+                    });
+
+                    response($results);
+                }
+            });
+        },
+        select: function (event, ui) {
+            var url = ui.item.url.replace("%7Bid%7D", ui.item.id);
+            url = url.replace("%7Bplug%7D", ui.item.plug);
+            url = url.replace("{query}", ui.item.query);
+            url = url.replace("%7Btype%7D", ui.item.type);
+            window.location = url;
+            return false;
+        }
+    }).keydown(function () {
+                $(this).css('color', '#000');
+            });
+
+    if ($searchAuto.length) {
+        $searchAuto.data("uiAutocomplete")._renderItem = function (ul, item) {
+            var type_str = "";
+            if (item.type == "Topic")
+                    type_str = "<span class='autocomplete-type'>" + "Topic" + "</span>";
+            return $("<li></li>")
+                    .data("item.autocomplete", item)
+                    .append("<a>" + (item.type == 'User' ? '<img class="gravatar" align="left" width="16" height="16" style="margin-right: 5px;" src="http://www.gravatar.com/avatar/'
+                            + item.emailHash + '?s=16&amp;d=identicon&amp;r=PG"/>' : '') + " " + item.label + " " + type_str + "</a>")
+                    .appendTo(ul);
+        };
+    }
+</script><script type="text/javascript">
+
+    $(document).ready(function () {
+        $bottom = $("#bottom");
+        $notFooter = $("#not-footer");
+        $push = $(".push");
+        $push.css("height", $bottom.outerHeight() + "px");
+        $notFooter.css("margin-bottom", "-" + $bottom.outerHeight() + "px");
+
+        $(".dummy-navbar-link").sidr();
+
+        $(".off-canvas-nav-btn").on("click", function(){
+            $.sidr(
+                "open",
+                "sidr",
+                function(){
+                    $(document.body).prepend("<div class='cover'></div>");
+                    $(".cover").fadeIn().on("click", function(){
+                        console.log("click");
+
+                        $.sidr('close', 'sidr');
+                        $(this).remove();
+                    });
+                }
+            );
+        });
+    });
+
+
+    $(".answer-body pre").addClass("prettyprint").addClass("linenums");
+    $(".question-body pre").addClass("prettyprint").addClass("linenums");
+    prettyPrint();
+
+</script>
+<script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-2854981-1']);
+    _gaq.push(['_trackPageview']);
+
+    (function () {
+        var ga = document.createElement('script');
+        ga.type = 'text/javascript';
+        ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0];
+        s.parentNode.insertBefore(ga, s);
+    })();
+</script>
+<script type="text/javascript" id="">(function(f,c,d,e,a,b){a=c.createElement(d);a.async=!0;a.src=e;b=c.getElementsByTagName(d)[0];b.parentNode.insertBefore(a,b)})(window,document,"script","https://u.heatmap.it/log.js");</script><table cellspacing="0" cellpadding="0" class="gstl_50 gssb_c" style="width: 6px; display: none; top: 66px; position: absolute; left: 1532px;"><tbody><tr><td class="gssb_f"></td><td class="gssb_e" style="width: 100%;"></td></tr></tbody></table><table cellspacing="0" cellpadding="0" class="gstl_51 gssb_c" style="width: 2px; display: none; top: 3px; position: absolute; left: -1px;"><tbody><tr><td class="gssb_f"></td><td class="gssb_e" style="width: 100%;"></td></tr></tbody></table><div style="background-color: #fff; border: 1px solid #ccc; box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.2); position: absolute; left: 0px; top: -10000px; transition: visibility 0s linear 0.3s, opacity 0.3s linear; opacity: 0; visibility: hidden; z-index: 2000000000;"><div style="width: 100%; height: 100%; position: fixed; top: 0px; left: 0px; z-index: 2000000000; background-color: #fff; opacity: 0.05;  filter: alpha(opacity=5)"></div><div class="g-recaptcha-bubble-arrow" style="border: 11px solid transparent; width: 0; height: 0; position: absolute; pointer-events: none; margin-top: -11px; z-index: 2000000000;"></div><div class="g-recaptcha-bubble-arrow" style="border: 10px solid transparent; width: 0; height: 0; position: absolute; pointer-events: none; margin-top: -10px; z-index: 2000000000;"></div><div style="z-index: 2000000000; position: relative;"><iframe src="./Setting the parent of a transform which resides in a prefab is disabled to prevent data corruption. WHY___ - Unity Answers_files/bframe.html" title="recaptcha challenge" frameborder="0" scrolling="no" sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-top-navigation allow-modals allow-popups-to-escape-sandbox" name="txotufxnyqgg" style="width: 100%; height: 100%;"></iframe></div></div></body></html>

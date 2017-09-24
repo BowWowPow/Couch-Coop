@@ -8,20 +8,29 @@ public class InputManager : MonoBehaviour {
 	private AllyVert _ally_vert;
 	private AllyHorz _ally_horz;
 	public static InputManager _input_instance;
-	public ArrayList Players = new ArrayList ();
+	public List<GameObject> Players = new List<GameObject> ();
 	private Leeroy p1_Move;
 	GameObject temp_vert,temp_horz;
 	public const string keyboard = "keyboard";
-	public const string p1_Horizontal = "LeftJoystickHorizontal";
-	public const string p1_Vertical = "LeftJoystickVertical";
-	public const string p1_XButton = "XButton";
-	public const string p1_BButton = "BButton";
+	public const string Horizontal = "LeftJoystickHorizontal";
+	public const string Vertical = "LeftJoystickVertical";
+	public const string XButton = "XButton_";
+	public const string BButton = "BButton_";
+	public const string AButton = "AButton_";
+	public const string YButton = "YButton_";
+	public const string YButton_0 = "YButton_0";
+	public const string AButton_0 = "AButton_0";
+	public const string BButton_0 = "BButton_0";
+	public const string XButton_0 = "XButton_0";
 	public static float n_players;
-	private string player_name = "player_";
+	//private string player_name = "player_";
+	public int p;
 
 	// Use this for initialization
 	void Start () {
 		gM = GameManager._gm_instance;
+		Players = gM.GetPlayers ();
+		p = 0;
 	}
 
 	void Awake()
@@ -38,21 +47,26 @@ public class InputManager : MonoBehaviour {
 		_ally_vert.MoveVertical(); 
 		_ally_horz.MoveHorizontal ();
 
+		for (int i = 0; Players.Count > i; i++) {
+			Debug.Log ("Looping over movement : " + i.ToString() + " : " + Players [i].gameObject.GetComponent<Leeroy> ().GetPlayer());
+			Players [i].gameObject.GetComponent<Leeroy> ().MovePlayer ();
+		}
+
 		if (gM.GetBallStatus ()) {
 			// If Any of the input maps to a x,y,b,a then shoot the ball from there. 
-			if(Input.GetKeyDown("joystick button 18")){
+			if(Input.GetButtonDown(XButton_0)){
 				_ally_vert.XFire();
 			}
 
-			if(Input.GetKeyDown("joystick button 17")){
+			if(Input.GetButtonDown(BButton_0)){
 				_ally_vert.BFire();
 			}
 
-			if(Input.GetKeyDown("joystick button 19")){
+			if(Input.GetButtonDown(YButton_0)){
 				_ally_horz.YFire();
 			}
 
-			if(Input.GetKeyDown("joystick button 16")){
+			if(Input.GetButtonDown(AButton_0)){
 				_ally_horz.AFire();
 			}
 		}

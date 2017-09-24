@@ -9,10 +9,10 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{3583E901-5917-A48D-931F-4E8D83DA873B}</ProjectGuid>
+    <ProjectGuid>{C808B6BD-F946-53BA-C7A4-DC1EF7A626F3}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <AssemblyName>Assembly-CSharp</AssemblyName>
+    <AssemblyName>Assembly-UnityScript</AssemblyName>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <BaseDirectory>Assets</BaseDirectory>
@@ -51,19 +51,19 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\_Scripts\Leeroy and Ally\AllyHorz.cs" />
-     <Compile Include="Assets\_Scripts\Leeroy and Ally\AllyVert.cs" />
-     <Compile Include="Assets\_Scripts\Leeroy and Ally\ammoLife.cs" />
-     <Compile Include="Assets\_Scripts\Leeroy and Ally\BallMovement.cs" />
-     <Compile Include="Assets\_Scripts\Leeroy and Ally\DestroyBall.cs" />
-     <Compile Include="Assets\_Scripts\Leeroy and Ally\GameManager.cs" />
-     <Compile Include="Assets\_Scripts\Leeroy and Ally\HealthUIController.cs" />
-     <Compile Include="Assets\_Scripts\Leeroy and Ally\InputManager.cs" />
-     <Compile Include="Assets\_Scripts\Leeroy and Ally\Leeroy.cs" />
-     <Compile Include="Assets\_Scripts\Leeroy and Ally\PaddleShoot.cs" />
-     <Compile Include="Assets\_Scripts\TileGrid\TileGridGen.cs" />
-     <Compile Include="Assets\Controller Tester\Scripts\DetectUnknownControllerMappings.cs" />
-     <Compile Include="Assets\EmptyClass.cs" />
+     <Compile Include="Assets\_Materials\Setting the parent of a transform which resides in a prefab is disabled to prevent data corruption. WHY___ - Unity Answers_files\analytics.js" />
+     <Compile Include="Assets\_Materials\Setting the parent of a transform which resides in a prefab is disabled to prevent data corruption. WHY___ - Unity Answers_files\answers.unity3d.com.js" />
+     <Compile Include="Assets\_Materials\Setting the parent of a transform which resides in a prefab is disabled to prevent data corruption. WHY___ - Unity Answers_files\async-ads.js" />
+     <Compile Include="Assets\_Materials\Setting the parent of a transform which resides in a prefab is disabled to prevent data corruption. WHY___ - Unity Answers_files\cse.js" />
+     <Compile Include="Assets\_Materials\Setting the parent of a transform which resides in a prefab is disabled to prevent data corruption. WHY___ - Unity Answers_files\default+en.I.js" />
+     <Compile Include="Assets\_Materials\Setting the parent of a transform which resides in a prefab is disabled to prevent data corruption. WHY___ - Unity Answers_files\ga.js" />
+     <Compile Include="Assets\_Materials\Setting the parent of a transform which resides in a prefab is disabled to prevent data corruption. WHY___ - Unity Answers_files\gtm.js" />
+     <Compile Include="Assets\_Materials\Setting the parent of a transform which resides in a prefab is disabled to prevent data corruption. WHY___ - Unity Answers_files\hBbt7rg7RPOkPGJiBA4dkaik1HCsf6LkGB2fwoYWU9Y.js" />
+     <Compile Include="Assets\_Materials\Setting the parent of a transform which resides in a prefab is disabled to prevent data corruption. WHY___ - Unity Answers_files\jquery.tmpl.js" />
+     <Compile Include="Assets\_Materials\Setting the parent of a transform which resides in a prefab is disabled to prevent data corruption. WHY___ - Unity Answers_files\log.js" />
+     <Compile Include="Assets\_Materials\Setting the parent of a transform which resides in a prefab is disabled to prevent data corruption. WHY___ - Unity Answers_files\modernizr.min.js" />
+     <Compile Include="Assets\_Materials\Setting the parent of a transform which resides in a prefab is disabled to prevent data corruption. WHY___ - Unity Answers_files\recaptcha__en.js" />
+     <Compile Include="Assets\_Materials\Setting the parent of a transform which resides in a prefab is disabled to prevent data corruption. WHY___ - Unity Answers_files\unity.js" />
  <Reference Include="UnityEngine.UI">
  <HintPath>/Applications/Unity 2017.1.0f3/Unity.app/Contents/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>

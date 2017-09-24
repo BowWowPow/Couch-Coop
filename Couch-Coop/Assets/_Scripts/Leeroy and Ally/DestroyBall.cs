@@ -14,5 +14,11 @@ public class DestroyBall : MonoBehaviour {
 			Destroy (collide.gameObject);
 			gM.BallOn ();
 		}
+		if (collide.gameObject.tag == "Player") {
+			collide.gameObject.transform.position = new Vector3 (0, 0.25f, 0);
+			collide.gameObject.GetComponent<Leeroy>().RemoveHealth ();
+			collide.gameObject.GetComponent<Leeroy>().PlayerIsImmune ();
+			collide.gameObject.GetComponent<Leeroy>().StartCoroutine("ColorLerp");
+		}
 	}
 }

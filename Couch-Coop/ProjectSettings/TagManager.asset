@@ -13,6 +13,7 @@ TagManager:
   - Y
   - B
   - X
+  - UI
   layers:
   - Default
   - TransparentFX

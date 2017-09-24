@@ -9,34 +9,50 @@ public class GameManager : MonoBehaviour {
 	public static InputManager _input_instance;
 	public int n_Players;
 	public GameObject _leeroy;
-	public ArrayList Players = new ArrayList();
+	public List<GameObject> Players = new List<GameObject>();
+	public List<GameObject> HealthUI = new List<GameObject>();
 	public ArrayList Colour = new ArrayList ();
-	public bool ballCanFire;
+	public bool ballCanFire,gameOver;
+	public GameObject PlayerScoreUI;
 
 	// Use this for initialization
 	void Start () {
 		ballCanFire = true;
+		gameOver = false;
 		_ALLY_VERT_ = Instantiate (_ally_vert_);
 		_ALLY_HORZ_ = Instantiate (_ally_horz_);
 		_WALLS_ = Instantiate (_walls_);
 
-		Colour.Add ("Color.red");
-		Colour.Add ("Color.green");
-		Colour.Add ("Color.magenta");
-		Colour.Add ("Color.cyan");
-
 		n_Players = 2;
 		int x = 2;
+		int p = 0;
 		for (int i = 0; i < n_Players; i++) {
 			string leeroy = "leeroy_" + i.ToString (); 
 			GameObject _Leeroy = new GameObject (leeroy);
-			_Leeroy = Instantiate (_leeroy, new Vector3(x, 0, 0),  Quaternion.identity);
+			_Leeroy = Instantiate (_leeroy, new Vector3(x, 0.25f, 0.25f),  Quaternion.identity);
 			x -= 2;
 			Players.Add (_Leeroy);
-			_Leeroy.gameObject.GetComponent<Renderer> ().material.color = Color.blue;
-			_Leeroy.gameObject.GetComponent<Leeroy> ().SetPlayer (i);
+			Debug.Log ("PLAYER VALUE : " + p.ToString());
+			_Leeroy.gameObject.GetComponent<Leeroy> ().SetPlayer (p);
+			p++;
+			switch(i){
+			case 0:
+				_Leeroy.gameObject.GetComponent<Renderer> ().material.color = Color.red;
+				break;
+			case 1:
+				_Leeroy.gameObject.GetComponent<Renderer> ().material.color = Color.magenta;
+				break;
+			case 2:
+				_Leeroy.gameObject.GetComponent<Renderer> ().material.color = Color.green;
+				break;
+			default:
+				_Leeroy.gameObject.GetComponent<Renderer> ().material.color = Color.red;
+				break;
+			}	
 		}
+
 	}
+		 
 	void Awake()
 	{
 		_gm_instance = this;
@@ -44,22 +60,20 @@ public class GameManager : MonoBehaviour {
 	}
 	// Update is called once per frame
 	void Update () {
-		WhoCanShoot ();
-		HasAnyoneShot ();
 		AnyoneLeft ();
 	}
 
-	public void WhoCanShoot ()
-	{
-
-	}
-	public void HasAnyoneShot ()
-	{
-			
-	}
 	public void AnyoneLeft ()
 	{
-
+		int p_aliveCount = 0;
+		for (int i = 0; i < Players.Count; i++) {
+			if (Players [i].gameObject.GetComponent<Leeroy> ().isPlayerAlive ()) {
+				p_aliveCount++;
+			}
+		}
+		if(p_aliveCount == 0){
+			gameOver = true;
+		}
 	}
 
 	public void BallOn(){
@@ -74,8 +88,9 @@ public class GameManager : MonoBehaviour {
 		return ballCanFire;
 	}
 
-	public ArrayList GetPlayers(){
+	public List<GameObject> GetPlayers(){
 		return Players;
 	}
+
 		
 }

@@ -15,6 +15,7 @@ public class Leeroy : MonoBehaviour {
 	private string playerName;
 	public bool noDamage, isAlive;
 	public GameObject healthUIWigit, HealthLayout;
+	private GameObject _health_wigit_;
 	public List<GameObject> HealthUI = new List<GameObject>();
 	private HealthUIController _healthUI_;
 	// Use this for initialization
@@ -30,6 +31,7 @@ public class Leeroy : MonoBehaviour {
 		isAlive = true;
 		playerName = "PLAYER " + player_n.ToString ();
 		GameObject temp = Instantiate (healthUIWigit);
+		HealthLayout = GameObject.FindGameObjectWithTag ("UI");
 		temp.transform.parent = HealthLayout.transform;
 		_healthUI_ = temp.gameObject.GetComponent<HealthUIController> ();
 		_healthUI_.SetUIHealthBar (playerName, health);

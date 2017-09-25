@@ -1,12 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour {
 	public GameObject _ally_vert_,_ally_horz_,_walls_;
 	public static GameObject _ALLY_VERT_,_ALLY_HORZ_,_WALLS_;
 	public static GameManager _gm_instance;
 	public static InputManager _input_instance;
+	public Canvas _ui_,_UI_;
 	public int n_Players;
 	public GameObject _leeroy;
 	public List<GameObject> Players = new List<GameObject>();
@@ -22,7 +24,7 @@ public class GameManager : MonoBehaviour {
 		_ALLY_VERT_ = Instantiate (_ally_vert_);
 		_ALLY_HORZ_ = Instantiate (_ally_horz_);
 		_WALLS_ = Instantiate (_walls_);
-
+		_UI_ = Instantiate (_ui_);	
 		n_Players = 2;
 		int x = 2;
 		int p = 0;

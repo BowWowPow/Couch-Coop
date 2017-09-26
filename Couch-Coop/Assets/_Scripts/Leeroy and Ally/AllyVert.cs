@@ -13,7 +13,7 @@ public class AllyVert : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		velocity = .0f;
-		moveSpeed = 50.0f;
+		moveSpeed = 75.0f;
 	}	
 
 	void Awake()

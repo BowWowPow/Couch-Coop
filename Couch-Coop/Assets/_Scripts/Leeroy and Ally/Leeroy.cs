@@ -20,7 +20,7 @@ public class Leeroy : MonoBehaviour {
 	private HealthUIController _healthUI_;
 	// Use this for initialization
 	void Start () {
-		moveSpeed = 10.0f;
+		moveSpeed = 5.0f;
 		velocity = 100.0f;
 		cd_fire = 1.0f;
 		t_fire = 0.0f;
@@ -39,6 +39,7 @@ public class Leeroy : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+		isPlayerAlive ();
 			if (t_fire <= cd_fire) {
 				t_fire += Time.deltaTime;
 			} else {
@@ -130,6 +131,7 @@ public class Leeroy : MonoBehaviour {
 	public bool isPlayerAlive(){
 		if (health == 0) {
 			isAlive = false;
+			Dead ();
 		}
 		return isAlive;
 	}

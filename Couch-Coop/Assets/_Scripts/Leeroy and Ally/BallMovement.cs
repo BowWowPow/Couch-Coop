@@ -6,9 +6,9 @@ public class BallMovement : MonoBehaviour {
 	public GameObject Target;
 	public float speed, maxSpeed, minSpeed;
 	void Start(){
-		speed = 200.0f;
-		maxSpeed = 300.0f;
-		minSpeed = 5.0f;
+		speed = 0.3f;
+		maxSpeed = 13.0f;
+		minSpeed = 10.0f;
 		GameObject temp = GameObject.FindGameObjectWithTag ("MainCamera");
 		GameManager gM = temp.GetComponent<GameManager> ();
 		gM.BallOff ();
@@ -34,22 +34,22 @@ public class BallMovement : MonoBehaviour {
 		if (collision.gameObject.tag == "A") {
 			float x_dist = DistanceX (collision.gameObject);
 			float z_dist = DistanceZ (collision.gameObject);
-			this.GetComponent<Rigidbody> ().velocity = new Vector3 (x_dist * 2.0f, 0.0f, z_dist * 2.0f);
+			this.GetComponent<Rigidbody> ().velocity = new Vector3 (x_dist * speed, 0.0f, z_dist * speed);
 		}
 		if (collision.gameObject.tag == "B") {
 			float x_dist = DistanceX (collision.gameObject);
 			float z_dist = DistanceZ (collision.gameObject);
-			this.GetComponent<Rigidbody> ().velocity = new Vector3 (x_dist * 2.0f, 0.0f, z_dist * 2.0f);
+			this.GetComponent<Rigidbody> ().velocity = new Vector3 (x_dist * speed, 0.0f, z_dist * speed);
 		}
 		if (collision.gameObject.tag == "Y") {
 			float x_dist = DistanceX (collision.gameObject);
 			float z_dist = DistanceZ (collision.gameObject);
-			this.GetComponent<Rigidbody> ().velocity = new Vector3 (x_dist * 2.0f, 0.0f, z_dist * 2.0f);
+			this.GetComponent<Rigidbody> ().velocity = new Vector3 (x_dist * speed, 0.0f, z_dist * speed);
 		}
 		if (collision.gameObject.tag == "X") {
 			float x_dist = DistanceX (collision.gameObject);
 			float z_dist = DistanceZ (collision.gameObject);
-			this.GetComponent<Rigidbody> ().velocity = new Vector3 (x_dist * 2.0f, 0.0f, z_dist * 2.0f);
+			this.GetComponent<Rigidbody> ().velocity = new Vector3 (x_dist * speed, 0.0f, z_dist * speed);
 		}
 
 		speed += 3.0f;

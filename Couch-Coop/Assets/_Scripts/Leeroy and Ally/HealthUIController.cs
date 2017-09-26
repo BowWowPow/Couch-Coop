@@ -22,7 +22,15 @@ public class HealthUIController : MonoBehaviour {
 	}
 
 	public void RemoveHeart(){
+		hearts [n_health-1].SetActive (false);
 		n_health -= 1;
-		//hearts.Remove (n_health);
+
+		if (n_health == 0) {
+			KillPlayerUI ();
+		}
+	}
+
+	public void KillPlayerUI(){
+		playerName.text = "";
 	}
 }

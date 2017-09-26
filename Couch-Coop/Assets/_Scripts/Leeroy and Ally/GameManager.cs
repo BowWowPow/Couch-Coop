@@ -25,7 +25,7 @@ public class GameManager : MonoBehaviour {
 		_ALLY_HORZ_ = Instantiate (_ally_horz_);
 		_WALLS_ = Instantiate (_walls_);
 		_UI_ = Instantiate (_ui_);	
-		n_Players = 2;
+		n_Players = 1;
 		int x = 2;
 		int p = 0;
 		for (int i = 0; i < n_Players; i++) {
@@ -52,7 +52,6 @@ public class GameManager : MonoBehaviour {
 				break;
 			}	
 		}
-
 	}
 		 
 	void Awake()
@@ -71,6 +70,9 @@ public class GameManager : MonoBehaviour {
 		for (int i = 0; i < Players.Count; i++) {
 			if (Players [i].gameObject.GetComponent<Leeroy> ().isPlayerAlive ()) {
 				p_aliveCount++;
+			} else {
+				Players [i].gameObject.GetComponent<Leeroy> ().Dead ();
+				Players.RemoveAt (i);
 			}
 		}
 		if(p_aliveCount == 0){

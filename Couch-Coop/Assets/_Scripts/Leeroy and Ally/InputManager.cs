@@ -47,6 +47,8 @@ public class InputManager : MonoBehaviour {
 		_ally_vert.MoveVertical(); 
 		_ally_horz.MoveHorizontal ();
 
+		Players = gM.GetPlayers ();
+
 		for (int i = 0; Players.Count > i; i++) {
 			Debug.Log ("Looping over movement : " + i.ToString() + " : " + Players [i].gameObject.GetComponent<Leeroy> ().GetPlayer());
 			Players [i].gameObject.GetComponent<Leeroy> ().MovePlayer ();
